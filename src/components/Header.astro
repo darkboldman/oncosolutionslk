@@ -1,0 +1,316 @@
+---
+// src/components/Header.astro
+// No server-side JavaScript needed for this basic structure yet.
+// We might add props later if needed (e.g., for active page highlighting).
+
+
+const email = "info@onco.lk";
+const phone = "+94 114 330 388"; 
+const hotline = "+94 773 285 033"; 
+const logoSrc = "logo/oncologo.png";
+const logoAlt = "Onco Logo";
+const menuToggleId = "mobile-menu-toggle";
+const menuNavId = "main-navigation-menu";
+---
+
+<header class="site-header">
+  <div class="header-top-row">
+    <div class="contact-info">
+      <a href={`mailto:${email}`}>{email}</a>
+      <span>|</span>
+      <a href={`tel:${phone}`}>{phone}</a>
+      <span>|</span>
+      <a href={`hot:${hotline}`}>{hotline}</a>
+    </div>
+  </div>
+
+  <div class="header-bottom-row">
+    <div class="logo">
+      <a href="/">
+        <img src={logoSrc} alt={logoAlt} />
+      </a>
+    </div>
+
+    
+    <button
+      id={menuToggleId}
+      class="mobile-menu-toggle"
+      aria-controls={menuNavId}
+      aria-expanded="false"   
+      aria-label="Toggle navigation"
+    >
+      
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      
+    </button>
+
+    
+    <nav class="main-navigation" id={menuNavId} aria-label="Main Navigation">
+        {/* Added ID to the ul for easier targeting/styling if needed, but nav id is primary */}
+        <ul class="main-menu-list">
+          <li class="has-submenu">
+            <a href="/">Home</a>
+            <ul class="submenu">
+              <!-- <li><a href="/about">About Us</a></li> -->
+            </ul>
+          </li>
+          <li><a href="/products">Products</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+</header>
+
+<style>
+    /* --- Existing Base Styles (Keep these) --- */
+    .site-header {
+      border-bottom: 1px solid #eee;
+      position: relative; /* Needed if mobile menu positions absolutely */
+    }
+  
+    .header-top-row {
+      background-color: #f8f8f8;
+      padding: 0.25rem 1rem;
+      font-size: 0.85rem;
+      /* On mobile, maybe center it or hide it */
+      text-align: center; /* Example: Center on mobile */
+    }
+    .header-top-row .contact-info a,
+    .header-top-row .contact-info span {
+      margin: 0 0.25rem; /* Adjust spacing */
+      color: #555;
+      text-decoration: none;
+    }
+     .header-top-row .contact-info a:hover {
+      text-decoration: underline;
+    }
+  
+    .header-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 1rem;
+    }
+  
+    .logo img {
+      max-height: 40px; /* Slightly smaller for mobile maybe */
+      width: auto;
+      display: block;
+    }
+  
+    /* --- Mobile Navigation Styles (Default) --- */
+    .mobile-menu-toggle {
+      display: block; /* Show hamburger by default */
+      background: none;
+      border: none;
+      padding: 0.5rem;
+      cursor: pointer;
+      z-index: 101; /* Ensure button is clickable above menu */
+    }
+  
+    .mobile-menu-toggle .icon-bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: #333;
+      margin: 4px 0;
+      transition: transform 0.3s ease, opacity 0.3s ease; /* For potential animation */
+    }
+  
+    .main-navigation {
+      /* Hide full nav menu on mobile by default */
+      display: none;
+      position: absolute; /* Take out of flow */
+      top: 100%; /* Position below the header */
+      left: 0;
+      right: 0;
+      background-color: white; /* Give it a background */
+      border-top: 1px solid #eee;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 100;
+      padding: 1rem; /* Add padding */
+    }
+  
+    /* Style added by JS to show the menu */
+    .main-navigation.is-open {
+      display: block;
+    }
+  
+    .main-navigation ul.main-menu-list {
+       list-style: none;
+       margin: 0;
+       padding: 0;
+       /* Mobile: stack items vertically */
+       display: flex;
+       flex-direction: column;
+       align-items: center; /* Center links */
+    }
+  
+    .main-navigation li {
+      margin: 0; /* Reset desktop margin */
+      width: 100%; /* Make list items take full width */
+      text-align: center;
+      border-bottom: 1px solid #f0f0f0; /* Separator lines */
+    }
+    .main-navigation li:last-child {
+      border-bottom: none;
+    }
+  
+    .main-navigation a {
+      display: block; /* Make link fill the li */
+      padding: 0.8rem 1rem;
+      color: #333;
+      text-decoration: none;
+      width: 100%;
+    }
+     .main-navigation a:hover {
+       background-color: #f8f8f8; /* Mobile hover state */
+       color: #007bff;
+     }
+  
+    /* --- Submenu Styling (Mobile Adjustments) --- */
+     .submenu {
+      /* Mobile: Don't display as dropdown, show inline or nested */
+      display: none; /* Initially hide on mobile (can be toggled or shown differently) */
+      position: static; /* Override absolute positioning */
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      margin: 0;
+      margin-left: 1rem; /* Indent submenu items */
+      background-color: transparent; /* No separate background */
+      width: 100%;
+     }
+     .submenu li {
+      border: none; /* Remove borders within submenu */
+      text-align: center; /* Or left-align if preferred */
+     }
+     .submenu a {
+       padding: 0.5rem 1rem;
+       font-size: 0.9em; /* Slightly smaller */
+       color: #555; /* Different color for distinction */
+     }
+     .submenu a:hover {
+       background-color: #f0f0f0;
+     }
+  
+     /* Show submenu when parent is active/toggled (Needs JS or more complex CSS potentially) */
+     /* For simplicity now, let's show it when the main nav is open */
+     .main-navigation.is-open li.has-submenu > .submenu {
+         display: block;
+     }
+     /* OR you might add a click handler to the parent 'Home' link on mobile */
+  
+  
+    /* --- Desktop Styles (Using Media Query) --- */
+    @media (min-width: 768px) { /* Adjust breakpoint as needed */
+      .header-top-row {
+          text-align: right; /* Restore desktop alignment */
+      }
+      .logo img {
+          max-height: 50px; /* Restore desktop logo size */
+      }
+      .mobile-menu-toggle {
+        display: none; /* Hide hamburger on desktop */
+      }
+  
+      .main-navigation {
+        display: block; /* Show nav container */
+        position: static; /* Back in normal flow */
+        background-color: transparent;
+        border-top: none;
+        box-shadow: none;
+        padding: 0;
+        width: auto; /* Allow it to size naturally */
+      }
+  
+      /* Ensure is-open has no effect on desktop display */
+       .main-navigation.is-open {
+          display: block;
+       }
+  
+      .main-navigation ul.main-menu-list {
+        flex-direction: row; /* Align items horizontally */
+        align-items: center; /* Align vertically */
+      }
+  
+      .main-navigation li {
+        margin: 0; /* Reset mobile margin */
+        margin-left: 1.5rem; /* Restore desktop spacing */
+        width: auto; /* Restore auto width */
+        border-bottom: none; /* Remove mobile separator */
+        position: relative; /* Needed for desktop dropdown */
+      }
+  
+      .main-navigation a {
+        padding: 0.5rem 0; /* Restore desktop padding */
+        width: auto; /* Restore auto width */
+      }
+      .main-navigation a:hover {
+        background-color: transparent; /* Reset mobile hover */
+        color: #007bff; /* Keep desktop hover color */
+      }
+  
+      /* --- Desktop Submenu Styles --- */
+       .submenu {
+          display: none; /* Hide by default */
+          position: absolute; /* Position absolutely */
+          top: 100%;
+          left: 0;
+          background-color: white;
+          border: 1px solid #eee;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+          min-width: 150px;
+          z-index: 10;
+          padding: 0.5rem 0;
+          margin-left: 0; /* Reset mobile indent */
+          list-style: none;
+       }
+       .submenu li {
+         width: 100%; /* Ensure full width inside dropdown */
+         text-align: left; /* Align text left */
+         margin-left: 0; /* Reset any inherited margin */
+       }
+       .submenu a {
+          padding: 0.5rem 1rem;
+          white-space: nowrap;
+          color: #333;
+          font-size: 1em; /* Restore font size */
+       }
+       .submenu a:hover {
+          background-color: #f0f0f0;
+          color: #007bff;
+       }
+  
+      /* Show desktop submenu on hover */
+      .main-navigation li.has-submenu:hover > .submenu {
+        display: block;
+      }
+    } /* End of media query */
+  
+  </style>
+
+<script>
+    // ... your existing JavaScript ...
+    // No changes needed here unless related to IDs above
+    // Ensure IDs used here exactly match the ones in the HTML:
+    const menuToggleId = "mobile-menu-toggle";
+    const menuNavId = "main-navigation-menu";
+
+    const toggleButton = document.getElementById(menuToggleId);
+    const mainNav = document.getElementById(menuNavId);
+
+    if (toggleButton && mainNav) {
+        toggleButton.addEventListener('click', () => {
+            const isOpen = mainNav.classList.toggle('is-open');
+            toggleButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            toggleButton.classList.toggle('is-active'); // Optional: for styling the button itself
+        });
+    } else {
+        // Check if IDs in HTML match exactly if this error occurs
+        console.error('Mobile menu toggle button or navigation element not found. Check IDs:', { menuToggleId, menuNavId });
+    }
+</script>

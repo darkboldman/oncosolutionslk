@@ -1,0 +1,167 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import productsData from '../../data/products.json';
+
+// Sort products: featured products first, then by name
+const sortedProducts = [...productsData].sort((a, b) => {
+  if (a.featured === "yes" && b.featured !== "yes") return -1;
+  if (a.featured !== "yes" && b.featured === "yes") return 1;
+  return a.name.localeCompare(b.name);
+});
+
+// Get the current page from the URL query parameter
+const currentPage = parseInt(Astro.url.searchParams.get('page') || '1');
+const productsPerPage = 12;
+const totalProducts = sortedProducts.length;
+const totalPages = Math.ceil(totalProducts / productsPerPage);
+
+// Calculate the start and end indices for the current page
+const startIndex = (currentPage - 1) * productsPerPage;
+const endIndex = Math.min(startIndex + productsPerPage, totalProducts);
+
+// Get products for the current page
+const productsForCurrentPage = sortedProducts.slice(startIndex, endIndex);
+
+// Generate pagination links
+function generatePaginationLink(pageNumber: number) {
+  return pageNumber === 1 ? '/products' : `/products?page=${pageNumber}`;
+}
+---
+
+<Layout title="Products | LED Lighting Solutions">
+  <div class="products-container">
+    <header class="products-header">
+      <h1>Our Products</h1>
+      <p>Browse our selection of high-quality LED lighting products</p>
+    </header>
+
+    <div class="products-grid">
+      {productsForCurrentPage.map(product => (
+        <div class="product-item">
+          <ProductCard product={product} />
+        </div>
+      ))}
+    </div>
+
+    {totalPages > 1 && (
+      <div class="pagination">
+        {currentPage > 1 && (
+          <a href={generatePaginationLink(currentPage - 1)} class="pagination-link prev">
+            &larr; Previous
+          </a>
+        )}
+        
+        <div class="pagination-numbers">
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map(pageNum => (
+            <a 
+              href={generatePaginationLink(pageNum)} 
+              class={`pagination-number ${pageNum === currentPage ? 'active' : ''}`}
+            >
+              {pageNum}
+            </a>
+          ))}
+        </div>
+        
+        {currentPage < totalPages && (
+          <a href={generatePaginationLink(currentPage + 1)} class="pagination-link next">
+            Next &rarr;
+          </a>
+        )}
+      </div>
+    )}
+  </div>
+</Layout>
+
+<style>
+  .products-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .products-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .products-header h1 {
+    font-size: 2.5rem;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+  }
+
+  .products-header p {
+    font-size: 1.25rem;
+    color: #4a5568;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .products-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .products-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .pagination {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .pagination-link {
+    display: inline-flex;
+    padding: 0.5rem 1rem;
+    background-color: #e2e8f0;
+    color: #4a5568;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+
+  .pagination-link:hover {
+    background-color: #cbd5e0;
+  }
+
+  .pagination-numbers {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .pagination-number {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #e2e8f0;
+    color: #4a5568;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .pagination-number:hover {
+    background-color: #cbd5e0;
+  }
+
+  .pagination-number.active {
+    background-color: #3182ce;
+    color: white;
+  }
+</style>

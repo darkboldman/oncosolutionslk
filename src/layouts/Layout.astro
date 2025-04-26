@@ -1,0 +1,493 @@
+---
+// Layout.astro
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/public/images/logo/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <a href="/"><img src="/public/images/logo/onco-globe-only.png" alt="onco solutions logo"><span class="onco-solutions"><span class="onco">ONCO</span><span class="solutions">SOLUTIONS</span></span></a>
+          </div>
+          <div class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/services">Services</a></li>
+            <!-- <li><a href="/about">About</a></li> -->
+            <li><a href="/contact" class="btn btn-sm">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-section">
+            <div class="footer-onco">
+              <a href="/"><img src="/public/images/logo/onco-globe-only.png" alt="onco solutions logo"><span class="onco-solutions"><span class="onco">ONCO</span><span class="solutions">SOLUTIONS</span></span></a>
+            </div>
+            <!-- <img src="/public/images/logo/oncosolutions.png" alt="onco solutions logo"> -->
+            <p>Professional lighting design, automation, and integration services for residential, commercial, and industrial spaces.</p>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+              <a href="#" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a>
+              <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+              <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+            </div>
+          </div>
+          
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="/services">Services</a></li>
+              <li><a href="/products">Products</a></li>
+              <li><a href="/projects">Projects</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3>Services</h3>
+            <ul>
+              <li><a href="/contact">Lighting Design</a></li>
+              <li><a href="/contact">Automation Systems</a></li>
+              <li><a href="/contact">Audio Visual Solutions</a></li>
+              <li><a href="/contact">LED Solutions</a></li>
+              <li><a href="/contact">Installation Services</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3>Contact Us</h3>
+            <address>
+              <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> B5/GF/1, GHS <br> Jalthara, Hanwella 10650 <br> Sri Lanka</p>
+              <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +94 114 330 388 <br> +94 773 285 033<br><p class="whatsapp-info">
+                <a href="https://wa.me/+94773285033" target="_blank" class="whatsapp-link">
+                <img src="/images/logo/whatsapp.svg" alt="WhatsApp" class="whatsapp-icon"></a>
+              </p></p>
+              <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> info@onco.lk <br>sales@onco.lk</p>
+            </address>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; 2009 - {new Date().getFullYear()} Onco Solutions (Pvt) Ltd. All rights reserved.</p>
+          <div class="footer-links">
+            <!-- <a href="/privacy">Privacy Policy</a> -->
+            <!-- <a href="/terms">Terms of Service</a> -->
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  /* Global Styles */
+  :root {
+    --primary-color: #0062cc;
+    --primary-hover: #0056b3;
+    --secondary-color: #6c757d;
+    --light-bg: #f8f9fa;
+    --dark-bg: #212529;
+    --text-color: #333;
+    --text-light: #f8f9fa;
+    --border-radius: 5px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --header-height: 80px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .btn-sm {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  /* Header Styles */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: var(--transition);
+  }
+
+  header.scrolled {
+    background-color: white;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-height: 12rem;
+    align-items: center;
+  }
+
+  .logo a {
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+  .logo img {
+    max-height: 3rem;
+    padding-right: 1rem;
+  }
+  .logo span.onco-solutions {
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 0.1rem 1rem;
+    border-left: solid 1px rgb(192, 192, 192);
+    color: var(--primary-color);
+  }
+  .logo span .onco {
+    color: var(--primary-color);
+    padding: none;
+    border-left: none;
+  }
+  .logo .solutions {
+    color: var(--secondary-color);
+    padding: none;
+    border-left: none;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-menu a {
+    font-weight: 500;
+    position: relative;
+  }
+
+  .nav-menu a:not(.btn):after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+  }
+
+  .nav-menu a:not(.btn):hover:after {
+    width: 100%;
+  }
+
+  .nav-menu .btn {
+    background-color: var(--primary-color);
+    color: white;
+  }
+
+  .nav-menu .btn:hover {
+    background-color: var(--primary-hover);
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+  }
+
+  /* Main Content Styles */
+  main {
+    padding-top: var(--header-height);
+    min-height: 80vh;
+  }
+
+  /* Footer Styles */
+  footer {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    padding: 4rem 0 2rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  .footer-onco {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-height: 12rem;
+    align-items: center;
+  }
+
+  .footer-onco a {
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+  .footer-onco img {
+    max-height: 2rem;
+    padding-right: 1rem;
+  }
+  .footer-onco span.onco-solutions {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.1rem 1rem;
+    border-left: solid 1px rgb(192, 192, 192);
+    color: var(--primary-color);
+  }
+  .footer-onco span .onco {
+    color: var(--primary-color);
+    padding: none;
+    border-left: none;
+  }
+  .footer-onco .solutions {
+    color: var(--secondary-color);
+    padding: none;
+    border-left: none;
+  }
+  .footer-section h3 {
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+  }
+
+  .footer-section h3:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--primary-color);
+  }
+
+  .footer-section ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .footer-section a:hover {
+    color: var(--primary-color);
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: var(--transition);
+  }
+
+  .social-icons a:hover {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+  }
+
+  address p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  address svg {
+    color: var(--primary-color);
+  }
+  address svg:hover {
+    color: var(--secondary-color);
+  }
+  img.whatsapp-icon {
+  width: 6rem; /* Adjust the size as needed */
+  height: 1.5rem; /* Adjust the size as needed */
+  vertical-align: middle; /* Align with text */
+  margin-right: 0.5rem; /* Add some spacing between icon and text */
+}
+
+  .footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: flex;
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: var(--header-height);
+      left: -100%;
+      width: 100%;
+      height: calc(100vh - var(--header-height));
+      background-color: white;
+      flex-direction: column;
+      padding: 2rem;
+      transition: var(--transition);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+    }
+
+    .nav-menu.active {
+      left: 0;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  // Handle navigation menu toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+      });
+    }
+
+    // Handle header background change on scroll
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (header) {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+    });
+  });
+</script>

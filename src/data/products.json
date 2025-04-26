@@ -1,0 +1,504 @@
+[
+  {
+    "id": "flexible-led-strip",
+    "name": "Flexible LED Strip Light (Warm White)",
+    "shortDescription": "Versatile and easy to install lighting for various applications.",
+    "description": "This 5-meter flexible LED strip light provides a warm white glow, perfect for creating ambient lighting, under-cabinet lighting, cove lighting, or highlighting architectural features. It features high-quality LEDs, a strong adhesive backing for simple installation, and can be cut at marked intervals to fit your specific needs. Low power consumption and a long lifespan make it an energy-efficient choice.",
+    "highlights": [
+      {
+        "icon": "health_and_safety",
+        "text": "Safe & Hypoallergenic"
+      },
+      {
+        "icon": "verified",
+        "text": "Dermatologist Tested"
+      },
+      {
+        "icon": "smartphone",
+        "text": "Home Automation"
+      },
+      {
+        "icon": "favorite",
+        "text": "Vegan & Cruelty-free"
+      }
+    ],
+    "price": 19.99,
+    "featured": "no",
+    "stockStatus": "In stock",
+    "images": [
+      "/images/products/philips-green-perform-sleek.jpg",
+      "/images/products/flexible-led-strip-2.jpg",
+      "/images/products/flexible-led-strip-3.jpg"
+    ],
+    "specifications": {
+      "Length": "5 meters",
+      "Color Temperature": "3000K (Warm White)",
+      "Voltage": "12V DC",
+      "Power Consumption": "9.6W/meter",
+      "LED Type": "SMD 2835",
+      "LED Density": "60 LEDs/meter",
+      "CRI": ">80",
+      "Waterproof Rating": "IP20 (Indoor Use)",
+      "Lifespan": "50,000 hours"
+    },
+    "documents": [
+      {
+        "name": "Product Brochure",
+        "file": "/documents/flexible-led-strip-brochure.pdf"
+      },
+      {
+        "name": "Compliance Certificate",
+        "file": "/documents/flexible-led-strip-compliance.pdf"
+      },
+      {
+        "name": "Test Report",
+        "file": "/documents/flexible-led-strip-test-report.pdf"
+      }
+    ]
+  },
+  {
+    "id": "lrs-150-24-600",
+    "name": "Meanwell LRS 150W 24V Power Supply",
+    "shortDescription": "Versatile and easy to install lighting for various applications.",
+    "description": "This 5-meter flexible LED strip light provides a warm white glow, perfect for creating ambient lighting, under-cabinet lighting, cove lighting, or highlighting architectural features. It features high-quality LEDs, a strong adhesive backing for simple installation, and can be cut at marked intervals to fit your specific needs. Low power consumption and a long lifespan make it an energy-efficient choice.",
+    "highlights": [
+      {
+        "icon": "straighten",
+        "text": "Custom Lengths"
+      },
+      {
+        "icon": "local_offer",
+        "text": "Local Stocks"
+      },
+      {
+        "icon": "eco",
+        "text": "Biodegradable Ingredients"
+      },
+      {
+        "icon": "satellite_alt",
+        "text": "Vegan & Cruelty-free"
+      }
+    ],
+    "price": 19.99,
+    "featured": "yes",
+    "stockStatus": "In stock",
+    "images": [
+      "/images/products/lrs-150-24-600.jpg",
+      "/images/products/flexible-led-strip-2.jpg",
+      "/images/products/flexible-led-strip-3.jpg"
+    ],
+    "specifications": {
+      "Length": "5 meters",
+      "Color Temperature": "3000K (Warm White)",
+      "Voltage": "12V DC",
+      "Power Consumption": "9.6W/meter",
+      "LED Type": "SMD 2835",
+      "LED Density": "60 LEDs/meter",
+      "CRI": ">80",
+      "Waterproof Rating": "IP20 (Indoor Use)",
+      "Lifespan": "50,000 hours"
+    },
+    "documents": [
+      {
+        "name": "Product Brochure",
+        "file": "/documents/flexible-led-strip-brochure.pdf"
+      },
+      {
+        "name": "Compliance Certificate",
+        "file": "/documents/flexible-led-strip-compliance.pdf"
+      },
+      {
+        "name": "Test Report",
+        "file": "/documents/flexible-led-strip-test-report.pdf"
+      }
+    ]
+  },
+  {
+    "id": "flexible-led-strip",
+    "name": "Flexible LED Strip Light (Warm White)",
+    "shortDescription": "Versatile and easy to install lighting for various applications.",
+    "description": "This 5-meter flexible LED strip light provides a warm white glow, perfect for creating ambient lighting, under-cabinet lighting, cove lighting, or highlighting architectural features. It features high-quality LEDs, a strong adhesive backing for simple installation, and can be cut at marked intervals to fit your specific needs. Low power consumption and a long lifespan make it an energy-efficient choice.",
+    "price": 19.99,
+    "featured": "yes",
+    "stockStatus": "In stock",
+    "images": [
+      "/images/products/flexible-led-strip-1.jpg",
+      "/images/products/flexible-led-strip-2.jpg",
+      "/images/products/flexible-led-strip-3.jpg"
+    ],
+    "specifications": {
+      "Length": "5 meters",
+      "Color Temperature": "3000K (Warm White)",
+      "Voltage": "12V DC",
+      "Power Consumption": "9.6W/meter",
+      "LED Type": "SMD 2835",
+      "LED Density": "60 LEDs/meter",
+      "CRI": ">80",
+      "Waterproof Rating": "IP20 (Indoor Use)",
+      "Lifespan": "50,000 hours"
+    },
+    "documents": [
+      {
+        "name": "Product Brochure",
+        "file": "/documents/flexible-led-strip-brochure.pdf"
+      },
+      {
+        "name": "Compliance Certificate",
+        "file": "/documents/flexible-led-strip-compliance.pdf"
+      },
+      {
+        "name": "Test Report",
+        "file": "/documents/flexible-led-strip-test-report.pdf"
+      }
+    ]
+  },
+  {
+    "id": "flexible-led-strip",
+    "name": "Flexible LED Strip Light (Warm White)",
+    "shortDescription": "Versatile and easy to install lighting for various applications.",
+    "description": "This 5-meter flexible LED strip light provides a warm white glow, perfect for creating ambient lighting, under-cabinet lighting, cove lighting, or highlighting architectural features. It features high-quality LEDs, a strong adhesive backing for simple installation, and can be cut at marked intervals to fit your specific needs. Low power consumption and a long lifespan make it an energy-efficient choice.",
+    "price": 19.99,
+    "featured": "yes",
+    "stockStatus": "In stock",
+    "images": [
+      "/images/products/flexible-led-strip-1.jpg",
+      "/images/products/flexible-led-strip-2.jpg",
+      "/images/products/flexible-led-strip-3.jpg"
+    ],
+    "specifications": {
+      "Length": "5 meters",
+      "Color Temperature": "3000K (Warm White)",
+      "Voltage": "12V DC",
+      "Power Consumption": "9.6W/meter",
+      "LED Type": "SMD 2835",
+      "LED Density": "60 LEDs/meter",
+      "CRI": ">80",
+      "Waterproof Rating": "IP20 (Indoor Use)",
+      "Lifespan": "50,000 hours"
+    },
+    "documents": [
+      {
+        "name": "Product Brochure",
+        "file": "/documents/flexible-led-strip-brochure.pdf"
+      },
+      {
+        "name": "Compliance Certificate",
+        "file": "/documents/flexible-led-strip-compliance.pdf"
+      },
+      {
+        "name": "Test Report",
+        "file": "/documents/flexible-led-strip-test-report.pdf"
+      }
+    ]
+  },
+  {
+    "id": "flexible-led-strip",
+    "name": "Flexible LED Strip Light (Warm White)",
+    "shortDescription": "Versatile and easy to install lighting for various applications.",
+    "description": "This 5-meter flexible LED strip light provides a warm white glow, perfect for creating ambient lighting, under-cabinet lighting, cove lighting, or highlighting architectural features. It features high-quality LEDs, a strong adhesive backing for simple installation, and can be cut at marked intervals to fit your specific needs. Low power consumption and a long lifespan make it an energy-efficient choice.",
+    "price": 19.99,
+    "featured": "yes",
+    "stockStatus": "In stock",
+    "images": [
+      "/images/products/flexible-led-strip-1.jpg",
+      "/images/products/flexible-led-strip-2.jpg",
+      "/images/products/flexible-led-strip-3.jpg"
+    ],
+    "specifications": {
+      "Length": "5 meters",
+      "Color Temperature": "3000K (Warm White)",
+      "Voltage": "12V DC",
+      "Power Consumption": "9.6W/meter",
+      "LED Type": "SMD 2835",
+      "LED Density": "60 LEDs/meter",
+      "CRI": ">80",
+      "Waterproof Rating": "IP20 (Indoor Use)",
+      "Lifespan": "50,000 hours"
+    },
+    "documents": [
+      {
+        "name": "Product Brochure",
+        "file": "/documents/flexible-led-strip-brochure.pdf"
+      },
+      {
+        "name": "Compliance Certificate",
+        "file": "/documents/flexible-led-strip-compliance.pdf"
+      },
+      {
+        "name": "Test Report",
+        "file": "/documents/flexible-led-strip-test-report.pdf"
+      }
+    ]
+  },
+  {
+    "id": "flexible-led-strip",
+    "name": "Flexible LED Strip Light (Warm White)",
+    "shortDescription": "Versatile and easy to install lighting for various applications.",
+    "description": "This 5-meter flexible LED strip light provides a warm white glow, perfect for creating ambient lighting, under-cabinet lighting, cove lighting, or highlighting architectural features. It features high-quality LEDs, a strong adhesive backing for simple installation, and can be cut at marked intervals to fit your specific needs. Low power consumption and a long lifespan make it an energy-efficient choice.",
+    "price": 19.99,
+    "featured": "yes",
+    "stockStatus": "In stock",
+    "images": [
+      "/images/products/flexible-led-strip-1.jpg",
+      "/images/products/flexible-led-strip-2.jpg",
+      "/images/products/flexible-led-strip-3.jpg"
+    ],
+    "specifications": {
+      "Length": "5 meters",
+      "Color Temperature": "3000K (Warm White)",
+      "Voltage": "12V DC",
+      "Power Consumption": "9.6W/meter",
+      "LED Type": "SMD 2835",
+      "LED Density": "60 LEDs/meter",
+      "CRI": ">80",
+      "Waterproof Rating": "IP20 (Indoor Use)",
+      "Lifespan": "50,000 hours"
+    },
+    "documents": [
+      {
+        "name": "Product Brochure",
+        "file": "/documents/flexible-led-strip-brochure.pdf"
+      },
+      {
+        "name": "Compliance Certificate",
+        "file": "/documents/flexible-led-strip-compliance.pdf"
+      },
+      {
+        "name": "Test Report",
+        "file": "/documents/flexible-led-strip-test-report.pdf"
+      }
+    ]
+  },
+  {
+    "id": "flexible-led-strip",
+    "name": "Flexible LED Strip Light (Warm White)",
+    "shortDescription": "Versatile and easy to install lighting for various applications.",
+    "description": "This 5-meter flexible LED strip light provides a warm white glow, perfect for creating ambient lighting, under-cabinet lighting, cove lighting, or highlighting architectural features. It features high-quality LEDs, a strong adhesive backing for simple installation, and can be cut at marked intervals to fit your specific needs. Low power consumption and a long lifespan make it an energy-efficient choice.",
+    "price": 19.99,
+    "featured": "yes",
+    "stockStatus": "In stock",
+    "images": [
+      "/images/products/flexible-led-strip-1.jpg",
+      "/images/products/flexible-led-strip-2.jpg",
+      "/images/products/flexible-led-strip-3.jpg"
+    ],
+    "specifications": {
+      "Length": "5 meters",
+      "Color Temperature": "3000K (Warm White)",
+      "Voltage": "12V DC",
+      "Power Consumption": "9.6W/meter",
+      "LED Type": "SMD 2835",
+      "LED Density": "60 LEDs/meter",
+      "CRI": ">80",
+      "Waterproof Rating": "IP20 (Indoor Use)",
+      "Lifespan": "50,000 hours"
+    },
+    "documents": [
+      {
+        "name": "Product Brochure",
+        "file": "/documents/flexible-led-strip-brochure.pdf"
+      },
+      {
+        "name": "Compliance Certificate",
+        "file": "/documents/flexible-led-strip-compliance.pdf"
+      },
+      {
+        "name": "Test Report",
+        "file": "/documents/flexible-led-strip-test-report.pdf"
+      }
+    ]
+  },
+  {
+    "id": "flexible-led-strip",
+    "name": "Flexible LED Strip Light (Warm White)",
+    "shortDescription": "Versatile and easy to install lighting for various applications.",
+    "description": "This 5-meter flexible LED strip light provides a warm white glow, perfect for creating ambient lighting, under-cabinet lighting, cove lighting, or highlighting architectural features. It features high-quality LEDs, a strong adhesive backing for simple installation, and can be cut at marked intervals to fit your specific needs. Low power consumption and a long lifespan make it an energy-efficient choice.",
+    "price": 19.99,
+    "featured": "yes",
+    "stockStatus": "In stock",
+    "images": [
+      "/images/products/flexible-led-strip-1.jpg",
+      "/images/products/flexible-led-strip-2.jpg",
+      "/images/products/flexible-led-strip-3.jpg"
+    ],
+    "specifications": {
+      "Length": "5 meters",
+      "Color Temperature": "3000K (Warm White)",
+      "Voltage": "12V DC",
+      "Power Consumption": "9.6W/meter",
+      "LED Type": "SMD 2835",
+      "LED Density": "60 LEDs/meter",
+      "CRI": ">80",
+      "Waterproof Rating": "IP20 (Indoor Use)",
+      "Lifespan": "50,000 hours"
+    },
+    "documents": [
+      {
+        "name": "Product Brochure",
+        "file": "/documents/flexible-led-strip-brochure.pdf"
+      },
+      {
+        "name": "Compliance Certificate",
+        "file": "/documents/flexible-led-strip-compliance.pdf"
+      },
+      {
+        "name": "Test Report",
+        "file": "/documents/flexible-led-strip-test-report.pdf"
+      }
+    ]
+  },
+  {
+    "id": "rgbw-led-controller",
+    "name": "RGBW LED Controller with Remote",
+    "shortDescription": "Control your RGB and RGBW LED lighting with ease.",
+    "description": "This RGBW LED controller allows you to manage your RGB and RGBW LED lighting installations with precision. The included remote control offers 20 preset lighting effects, color adjustment, brightness control, and speed control. It supports synchronization of multiple controllers and features memory function to recall your last settings after power off.",
+    "price": 24.95,
+    "featured": "no",
+    "stockStatus": "In stock",
+    "images": [
+      "/images/products/rgbw-controller-1.jpg",
+      "/images/products/rgbw-controller-2.jpg"
+    ],
+    "specifications": {
+      "Input Voltage": "12-24V DC",
+      "Output": "4 Channels (R/G/B/W)",
+      "Max Current Per Channel": "5A",
+      "Total Output Power": "12V:<240W, 24V:<480W",
+      "Remote Control Range": "Up to 20 meters",
+      "Remote Battery": "CR2025 (included)",
+      "Dimensions": "85mm × 45mm × 23mm"
+    },
+    "documents": [
+      {
+        "name": "User Manual",
+        "file": "/documents/rgbw-controller-manual.pdf"
+      },
+      {
+        "name": "Wiring Diagram",
+        "file": "/documents/rgbw-controller-wiring.pdf"
+      }
+    ]
+  },
+  {
+    "id": "led-downlight",
+    "name": "LED Recessed Downlight (10W)",
+    "shortDescription": "Energy-efficient recessed lighting for modern interiors.",
+    "description": "These 10W recessed LED downlights provide bright, even illumination for residential and commercial spaces. Their slim profile makes them perfect for areas with limited ceiling cavity space, while the white finish blends seamlessly with most ceiling designs. Each downlight delivers the equivalent light output of a 60W traditional bulb while consuming just 10W of power.",
+    "price": 15.99,
+    "featured": "yes",
+    "stockStatus": "On order",
+    "images": [
+      "/images/products/led-downlight-1.jpg",
+      "/images/products/led-downlight-2.jpg"
+    ],
+    "specifications": {
+      "Power": "10W",
+      "Lumens": "850lm",
+      "Color Temperature": "4000K (Natural White)",
+      "Beam Angle": "120°",
+      "Cut-out Size": "90mm",
+      "Dimensions": "100mm × 35mm",
+      "Dimmable": "Yes (trailing edge)",
+      "Lifespan": "35,000 hours"
+    },
+    "documents": [
+      {
+        "name": "Installation Guide",
+        "file": "/documents/led-downlight-installation.pdf"
+      }
+    ]
+  },
+  {
+    "id": "led-driver",
+    "name": "12V DC LED Power Supply",
+    "shortDescription": "Reliable power supply for LED lighting systems.",
+    "description": "This constant voltage LED driver provides stable 12V DC output for powering LED strips, modules, and other low-voltage lighting. Its compact, lightweight design allows for flexible installation options, while built-in protections against short circuit, overload, and over-voltage ensure safe operation.",
+    "price": 29.95,
+    "featured": "no",
+    "stockStatus": "Out of stock",
+    "images": [
+      "/images/products/led-driver-1.jpg"
+    ],
+    "specifications": {
+      "Input Voltage": "100-240V AC",
+      "Output Voltage": "12V DC",
+      "Output Power": "60W",
+      "Output Current": "5A",
+      "Efficiency": ">85%",
+      "Protections": "Short circuit, overload, over-voltage",
+      "Dimensions": "140mm × 60mm × 30mm"
+    },
+    "documents": [
+      {
+        "name": "Technical Specifications",
+        "file": "/documents/led-driver-specs.pdf"
+      },
+      {
+        "name": "Safety Certificate",
+        "file": "/documents/led-driver-safety.pdf"
+      }
+    ]
+  },
+  {
+    "id": "pendant-light",
+    "name": "Modern LED Pendant Light",
+    "shortDescription": "Elegant suspended lighting for dining areas and kitchens.",
+    "description": "This modern LED pendant light features a sleek aluminum body with a matte black finish and a warm white light that creates a cozy ambiance. The adjustable suspension cables allow you to set the perfect height for your space, making it ideal for hanging over dining tables, kitchen islands, or in entryways.",
+    "price": 89.99,
+    "featured": "yes",
+    "stockStatus": "Order on demand",
+    "images": [
+      "/images/products/pendant-light-1.jpg",
+      "/images/products/pendant-light-2.jpg",
+      "/images/products/pendant-light-3.jpg"
+    ],
+    "specifications": {
+      "Power": "18W",
+      "Lumens": "1200lm",
+      "Color Temperature": "3000K (Warm White)",
+      "Material": "Aluminum, Acrylic",
+      "Finish": "Matte Black",
+      "Dimensions": "400mm diameter × 15mm height",
+      "Cable Length": "1.5m (adjustable)",
+      "Dimmable": "Yes (with compatible dimmer)"
+    },
+    "documents": [
+      {
+        "name": "Assembly Instructions",
+        "file": "/documents/pendant-light-assembly.pdf"
+      }
+    ]
+  },
+  {
+    "id": "motion-sensor",
+    "name": "Infrared Motion Sensor for Lighting",
+    "shortDescription": "Automatic lighting control for energy savings.",
+    "description": "This ceiling-mounted motion sensor detects movement using passive infrared technology and automatically controls your lighting for convenience and energy savings. It's perfect for hallways, stairwells, closets, garages, and other areas where hands-free lighting operation is desired.",
+    "price": 19.95,
+    "featured": "no",
+    "stockStatus": "At Supplier",
+    "images": [
+      "/images/products/motion-sensor-1.jpg",
+      "/images/products/motion-sensor-2.jpg"
+    ],
+    "specifications": {
+      "Detection Range": "Up to 8 meters",
+      "Detection Angle": "360°",
+      "Time Delay": "10 seconds to 7 minutes (adjustable)",
+      "Lux Setting": "10-2000 lux (adjustable)",
+      "Mounting Height": "2.2-4m recommended",
+      "Load Capacity": "800W (incandescent), 400W (LED/CFL)",
+      "Power Supply": "220-240V AC"
+    },
+    "documents": [
+      {
+        "name": "User Manual",
+        "file": "/documents/motion-sensor-manual.pdf"
+      },
+      {
+        "name": "Wiring Diagram",
+        "file": "/documents/motion-sensor-wiring.pdf"
+      }
+    ]
+  }
+]

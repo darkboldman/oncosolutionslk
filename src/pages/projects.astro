@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LazyLoad from '../components/LazyLoad.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import projects from '../data/projects.json';
+
+// Sort projects - featured projects first, then by year (newest first)
+const sortedProjects = [...projects].sort((a, b) => {
+  // First sort by featured status
+  if (a.featured === 'yes' && b.featured !== 'yes') return -1;
+  if (a.featured !== 'yes' && b.featured === 'yes') return 1;
+  
+  // Then sort by year (descending)
+  return b.year - a.year;
+});
+---
+
+<Layout title="Our Projects">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header">
+        <h3 class="section-title">What we have done</h3>
+        <h2 class="section-heading">LEARN MORE ABOUT OUR <span>PROJECTS</span></h2>
+        <p class="section-subtitle">Discover how Onco Solutions transforms commercial spaces with intelligent lighting automation & LED lighting — delivering excellence across Sri Lanka and beyond.</p>
+      </div>
+    </div>
+    
+    <div class="projects-grid">
+      {sortedProjects.map(project => (
+        <LazyLoad>
+            <div class="project-item">
+            <ProjectCard 
+                name={project.name}
+                featured={project.featured}
+                year={project.year}
+                scope={project.scope}
+                description={project.description}
+                clientUrl={project.clientUrl}
+                location={project.location}
+                imageUrl={project.imageUrl}
+                slug={project.slug}
+            />
+            </div>
+        </LazyLoad>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .projects-header {
+    text-align: center;
+    margin: 3rem 0;
+  }
+
+  .projects-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  .projects-header p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  /* Responsive design */
+  @media (max-width: 1024px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .projects-header h1 {
+      font-size: 2rem;
+    }
+  }
+</style>

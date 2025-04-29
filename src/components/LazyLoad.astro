@@ -1,0 +1,44 @@
+---
+// src/components/LazyLoad.astro
+
+interface Props {
+  tag?: keyof HTMLElementTagNameMap;
+  [key: string]: any;
+}
+
+const { tag = 'div', ...props } = Astro.props;
+const TagName = tag as keyof HTMLElementTagNameMap;
+---
+
+<TagName data-lazy-load {...props}>
+  <slot />
+</TagName>
+
+<script type="module" is:inline>
+  const lazyLoadElements = document.querySelectorAll('[data-lazy-load]');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const element = entry.target;
+        const tagName = element.tagName.toLowerCase();
+
+        if (tagName === 'img' && element.hasAttribute('data-src')) {
+          const imgElement = element;
+          imgElement.src = imgElement.dataset.src;
+          delete imgElement.dataset.src;
+        } else if (tagName === 'iframe' && element.hasAttribute('data-src')) {
+          const iframeElement = element;
+          iframeElement.src = iframeElement.dataset.src;
+          delete iframeElement.dataset.src;
+        }
+
+        observer.unobserve(element);
+      }
+    });
+  });
+
+  lazyLoadElements.forEach((element) => {
+    observer.observe(element);
+  });
+</script>

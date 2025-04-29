@@ -1,7 +1,27 @@
 ---
 // index.astro
 import Layout from '../layouts/Layout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import productsData from '../data/products.json'; 
+// Filter for featured products
+
+interface Product {
+  id: string;
+  name: string;
+  featured: string;
+  shortDescription: string;
+  price: number;
+  stockStatus: string;
+  images: string[];
+}
+
+// Define products as an array of Product or an empty array
+
+const products: Product[] = Array.isArray(productsData) ? productsData : [];
+
+const featuredProducts = products.filter((product:Product) => product.featured === "yes");
 ---
+
 
 <Layout title="Smart Lighting Solutions | Professional Lighting Design & Automation">
   <!-- Hero Section -->
@@ -9,6 +29,8 @@ import Layout from '../layouts/Layout.astro';
     <div class="hero-content">
       <h1>Innovative Lighting Solutions</h1>
       <p>Design • Installation • Integration • Automation</p>
+      <h3>Certified & Trusted Expertise</h3>
+      <p>Philips Dynalite | Schneider C-Bus | Madrix DMX | DALI Control</p>
       <div class="hero-buttons">
         <a href="/projects" class="btn btn-primary">Our Projects</a>
         <a href="/contact" class="btn btn-secondary">Contact Us</a>
@@ -50,15 +72,13 @@ import Layout from '../layouts/Layout.astro';
         <div class="new-badge">NEW</div>
         <div class="service-content">
           <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="16 18 22 12 16 6"></polyline>
-              <polyline points="8 6 2 12 8 18"></polyline>
-              <line x1="2" y1="12" x2="22" y2="12"></line>
-            </svg>
+            <span class="material-symbols-outlined">
+              strategy
+            </span>
           </div>
-          <h3 class="service-title">Web Development</h3>
-          <p class="service-description">Building robust, scalable and secure websites and web applications tailored to your specific business needs.</p>
-          <a href="#" class="service-link">
+          <h3 class="service-title">Project Management</h3>
+          <p class="service-description">We provide end-to-end project management, overseeing every stage from planning to execution with precision. Our commitment ensures your projects are delivered on time, within budget, and with exceptional results that exceed expectations.</p>
+          <a href="/services" class="service-link">
             Learn more
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -72,16 +92,15 @@ import Layout from '../layouts/Layout.astro';
       <div class="service-card">
         <div class="service-content">
           <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 7h-9"></path>
-              <path d="M14 17H5"></path>
-              <circle cx="17" cy="17" r="3"></circle>
-              <circle cx="7" cy="7" r="3"></circle>
-            </svg>
+            <span class="material-symbols-outlined">
+              design_services
+            </span>
           </div>
-          <h3 class="service-title">Digital Marketing</h3>
-          <p class="service-description">Strategic marketing campaigns that increase your online visibility, drive qualified traffic and convert visitors into loyal customers.</p>
-          <a href="#" class="service-link">
+          <h3 class="service-title">Design</h3>
+          <p class="service-description"> We design smart systems for residential, hospitality, and commercial spaces that enhance comfort, improve energy efficiency, and create the perfect ambiance—seamlessly integrating with your electrical infrastructure for intuitive control and lasting performance.
+
+          </p>
+          <a href="/services" class="service-link">
             Learn more
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -95,15 +114,13 @@ import Layout from '../layouts/Layout.astro';
       <div class="service-card">
         <div class="service-content">
           <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-              <line x1="8" y1="21" x2="16" y2="21"></line>
-              <line x1="12" y1="17" x2="12" y2="21"></line>
-            </svg>
+            <span class="material-symbols-outlined">
+              construction
+            </span>
           </div>
-          <h3 class="service-title">Mobile App Development</h3>
-          <p class="service-description">Native and cross-platform mobile applications that provide seamless experiences across iOS and Android devices.</p>
-          <a href="#" class="service-link">
+          <h3 class="service-title">Installation</h3>
+          <p class="service-description">Our certified and experienced team delivers professional installation of electrical systems, lighting automation, and fixtures — ensuring flawless performance, uncompromising safety, and exceptional quality on every project.</p>
+          <a href="/services" class="service-link">
             Learn more
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -117,13 +134,13 @@ import Layout from '../layouts/Layout.astro';
       <div class="service-card">
         <div class="service-content">
           <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-            </svg>
+            <span class="material-symbols-outlined">
+              delivery_truck_bolt
+            </span>
           </div>
-          <h3 class="service-title">Data Analytics</h3>
-          <p class="service-description">Transform raw data into actionable insights that drive informed business decisions and strategic growth initiatives.</p>
-          <a href="#" class="service-link">
+          <h3 class="service-title">Supply</h3>
+          <p class="service-description">We provide a comprehensive range of high-quality cutting-edge lighting automation systems and energy-efficient LED fixtures to premium sound solutions and essential electrical components — we supply trusted brands and reliable technologies to ensure your project’s success.</p>
+          <a href="/services" class="service-link">
             Learn more
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -137,15 +154,13 @@ import Layout from '../layouts/Layout.astro';
       <div class="service-card">
         <div class="service-content">
           <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-              <path d="M2 17l10 5 10-5"></path>
-              <path d="M2 12l10 5 10-5"></path>
-            </svg>
+            <span class="material-symbols-outlined">
+              home_repair_service
+            </span>
           </div>
-          <h3 class="service-title">Cloud Solutions</h3>
-          <p class="service-description">Secure, scalable and cost-effective cloud infrastructure and services that optimize your business operations.</p>
-          <a href="#" class="service-link">
+          <h3 class="service-title">Maintenance</h3>
+          <p class="service-description">Our ongoing maintenance services are designed to keep your electrical systems operating at their best, ensuring safety, efficiency, and long-term reliability. We’re here to provide the expert support you can count on.</p>
+          <a href="/services" class="service-link">
             Learn more
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -160,39 +175,16 @@ import Layout from '../layouts/Layout.astro';
   <!-- Products Section -->
   <section class="products">
     <div class="container">
-      <h2 class="section-title">Featured Products</h2>
+      <!-- <h2 class="section-title">Featured Products</h2> -->
+      <div class="products-header">
+        <h3 class="products-title">What we sell</h3>
+        <h2 class="products-heading">DISCOVER MORE ABOUT OUR <span>PRODUCTS</span></h2>
+        <p class="products-subtitle">Not sure what you need? Start here! Dive into our collection and discover the product that fits your needs perfectly.</p>
+      </div>
       <div class="products-grid">
-        <div class="product-card">
-          <div class="product-image">
-            <img src="/public/images/products/philips-green-perform-sleek.jpg" alt="Philips Green Perform LED Downlight">
-          </div>
-          <h3>Philips Lighting</h3>
-          <p>From stylish homes to smart interiors and bold business spaces, Philips LED lighting brings elegance and efficiency to every environment. Downlights, linear lights, flood lights — all in stock, ready to brighten Sri Lanka.</p>
-        </div>
-        
-        <div class="product-card">
-          <div class="product-image">
-            <img src="/public/images/products/lrs-150-24-600.jpg" alt="Meanwell power supply -LRS 150W 24v">
-          </div>
-          <h3>Meanwell Power</h3>
-          <p>Power your LED lighting and automation systems with Meanwell, the global leader in high-quality power supplies. Known for their exceptional reliability, smooth dimming performance, and long-lasting durability. Perfect for smart lighting, signage, and industrial automation.</p>
-        </div>
-        
-        <div class="product-card">
-          <div class="product-image">
-            <img src="/public/images/products/Al-OS-06.jpg" alt="Meanwell power supply -LRS 150W 24v">
-          </div>
-          <h3>LED Profiles</h3>
-          <p>Sleek, durable aluminium profiles designed for LED strips. Available in both linear and round styles, our customisable profiles ensure a clean, professional finish. Perfect for modern homes, offices, or commercial spaces. Made to fit your unique lighting needs.</p>
-        </div>
-        
-        <div class="product-card">
-          <div class="product-image">
-            <img src="/public/images/products/dynalite-user-interface-400.jpg" alt="dynalite user interface wall mount screen">
-          </div>
-          <h3>Philips Dynalite</h3>
-          <p>Bring your home or guestroom to life with Philips Dynalite Lighting Controls — the trusted name in lighting automation. Whether you're building a smart home or outfitting a hotel room, Dynalite offers seamless control, energy efficiency, and ambiance at the touch of a button.</p>
-        </div>
+        {featuredProducts.map(product => (
+          <ProductCard product={product as Product} />
+        ))}
       </div>
       <div class="product-button-container">
         <a href="/products" class="btn btn-primary product-page-btn">View All Products</a>
@@ -203,36 +195,32 @@ import Layout from '../layouts/Layout.astro';
   <!-- Brand Partners Section -->
   <section class="partners">
     <div class="container">
-      <h2 class="section-title">Our Brand Partners</h2>
-      <div class="logos-grid">
-        <div class="logo-item">
-          <img src="/public/images/brands/clipsal-300-150.png" alt="logo of clipsal">
+      <div class="partners-content">
+        <!-- Left text content -->
+        <div class="partners-text">
+          <h2 class="partner-title">who we work with</h2>
+          <h2 class="partner-heading">INDUSTRY LEADING <span>BRANDS</span></h2>
+          <p class="partner-description">
+            At Onco Solutions, we don't just deliver cutting-edge smart lighting and automation — we do it alongside the best in the industry. By collaborating with world-renowned brands, we ensure every solution we provide is built on quality, innovation, and lasting reliability.
+          </p>
+          <!-- <a href="/partners" class="read-more-btn">Read More</a> -->
         </div>
-        <div class="logo-item">
-          <img src="/public/images/brands/dalux-lighting-300-150.png" alt="logo of dalux lighting">
+  
+        <!-- Right logos grid -->
+        <div class="logos-grid">
+          <div class="logo-item"><img src="/public/images/brands/clipsal-300-150.png" alt="Clipsal logo"></div>
+          <div class="logo-item"><img src="/public/images/brands/dalux-lighting-300-150.png" alt="Dalux Lighting logo"></div>
+          <div class="logo-item"><img src="/public/images/brands/intelight-300-150.png" alt="Intelight logo"></div>
+          <div class="logo-item"><img src="/public/images/brands/madrix-300-150.png" alt="Madrix logo"></div>
+          <div class="logo-item"><img src="/public/images/brands/meanwell-300-150.png" alt="Meanwell logo"></div>
+          <div class="logo-item"><img src="/public/images/brands/philips-300-150.png" alt="Philips logo"></div>
+          <div class="logo-item"><img src="/public/images/brands/dynalite-300-150.png" alt="Dynalite logo"></div>
+          <div class="logo-item"><img src="/public/images/brands/schneider-300-150.png" alt="Schneider logo"></div>
         </div>
-        <div class="logo-item">
-          <img src="/public/images/brands/intelight-300-150.png" alt="logo of intelight">
-        </div>
-        <div class="logo-item">
-          <img src="/public/images/brands/madrix-300-150.png" alt="logo of madrix">
-        </div>
-        <div class="logo-item">
-          <img src="/public/images/brands/meanwell-300-150.png" alt="logo of meanwell">
-        </div>
-        <div class="logo-item">
-          <img src="/public/images/brands/philips-300-150.png" alt="logo of philips">
-        </div>
-        <div class="logo-item">
-          <img src="/public/images/brands/dynalite-300-150.png" alt="logo of dynalite">
-        </div>
-        <div class="logo-item">
-          <img src="/public/images/brands/schneider-300-150.png" alt="logo of schneider">
-        </div>
-        
       </div>
     </div>
   </section>
+  
 
   <!-- Markets Section -->
   <section class="markets">
@@ -287,7 +275,11 @@ import Layout from '../layouts/Layout.astro';
   <!-- Why Choose Us Section -->
   <section class="features">
     <div class="container">
-      <h2 class="section-title">Why Choose Us</h2>
+      <div class="products-header">
+        <h3 class="products-title">Why choose us</h3>
+        <h2 class="products-heading">EXPLORE OUR <span>STRENGTHS</span></h2>
+        <p class="products-subtitle">At Onco Solutions, excellence is built into everything we do. Our tailored solutions blend cutting-edge technology with sophisticated design, delivered through expert craftsmanship and unwavering support. Discover how our strengths create spaces that inspire and endure.</p>
+      </div>
       <div class="features-grid">
         <div class="feature">
           <div class="feature-icon">
@@ -296,7 +288,7 @@ import Layout from '../layouts/Layout.astro';
             </span>
           </div>
           <h3>Energy Efficient</h3>
-          <p>Energy-efficient, eco-friendly lighting solutions that cut costs and brighten your space.</p>
+          <p>We design lighting systems that reduce energy consumption without compromising performance or ambiance.</p>
         </div>
         
         <div class="feature">
@@ -306,7 +298,7 @@ import Layout from '../layouts/Layout.astro';
             </span>
           </div>
           <h3>Customized Designs</h3>
-          <p>Solutions tailored to your unique space, combining function and style.</p>
+          <p>Every space is unique — our solutions are tailored to match your vision, style, and technical needs.</p>
         </div>
         
         <div class="feature">
@@ -316,7 +308,7 @@ import Layout from '../layouts/Layout.astro';
             </span>
           </div>
           <h3>Expert Installation</h3>
-          <p>Professional installation by certified technicians.</p>
+          <p>Our experienced team ensures seamless, safe, and professional implementation from start to finish.</p>
         </div>
         
         <div class="feature">
@@ -326,7 +318,7 @@ import Layout from '../layouts/Layout.astro';
             </span>
           </div>
           <h3>Reliable Support</h3>
-          <p>Ongoing maintenance and support for all installed systems.</p>
+          <p>We stand by our work with dependable after-sales service and ongoing technical support.</p>
         </div>
       </div>
     </div>
@@ -362,7 +354,7 @@ import Layout from '../layouts/Layout.astro';
           <img src="/public/images/clients/airportandaviation-srilanka.png" alt="logo of Airport & aviation sri lanka">
         </div>
         <div class="client-logo">
-          <img src="/public/images/clients/waterboard-rathmalana.png" alt="logo of waterboard boardroom Rathmalana sri lanka">
+          <img src="/public/images/clients/heritance-negambo.jpg" alt="logo of heritance negambo, sri lanka">
         </div>
         <div class="client-logo">
           <img src="/public/images/clients/altair-colombo.png" alt="logo of altair Colombo sri lanka">
@@ -382,6 +374,9 @@ import Layout from '../layouts/Layout.astro';
         <div class="client-logo">
           <img src="/public/images/clients/university-of-peradeniya-eoa.jpg" alt="logo of university of Peradeniya sri lanka">
         </div>
+        <div class="client-logo">
+          <img src="/public/images/clients/toyota-lanka.png" alt="logo of Toyota sri lanka">
+        </div>
       </div>
     </div>
   </section>
@@ -390,7 +385,7 @@ import Layout from '../layouts/Layout.astro';
 <style>
   /* Base Styles */
   :root {
-    --primary-color: #0062cc;
+    --primary-color: rgba(41, 164, 240, 0.9);
     --primary-hover: #0056b3;
     --secondary-color: #6c757d;
     --light-bg: #f8f9fa;
@@ -409,22 +404,22 @@ import Layout from '../layouts/Layout.astro';
     padding: 0 20px;
   }
 
-  .section-title {
+  /* .section-title {
     text-align: center;
     margin-bottom: 3rem;
     font-size: 2.5rem;
     color: var(--text-color);
     position: relative;
-  }
+  } */
 
-  .section-title:after {
+  /* .section-title:after {
     content: '';
     display: block;
     width: 80px;
     height: 4px;
     background: var(--primary-color);
     margin: 15px auto 0;
-  }
+  } */
 
   /* Button Styles */
   .btn {
@@ -538,7 +533,7 @@ import Layout from '../layouts/Layout.astro';
     }
     
     .service-card {
-      background-color: white;
+      background-color: rgb(227, 243, 252);
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -662,10 +657,39 @@ import Layout from '../layouts/Layout.astro';
     padding: 5rem 0;
     background-color: var(--light-bg);
   }
+  .products-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .products-title {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #777;
+      margin-bottom: 15px;
+    }
+    
+    .products-heading {
+      font-size: 42px;
+      font-weight: 700;
+      color: #2d3047;
+      margin-bottom: 20px;
+    }
+    
+    .products-heading span {
+      color: rgba(85, 187, 250, 0.9);
+    }
+    
+    .products-subtitle {
+      max-width: 600px;
+      margin: 0 auto;
+      color: #666;
+    }
 
   .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
   }
 
@@ -724,7 +748,7 @@ import Layout from '../layouts/Layout.astro';
   }
 
   /* Brand Partners Section */
-  .partners {
+  /* .partners {
     padding: 5rem 0;
     background-color: white;
   }
@@ -757,7 +781,115 @@ import Layout from '../layouts/Layout.astro';
   .logo-item:hover {
     filter: grayscale(0);
     opacity: 1;
-  }
+  } */
+  .partners {
+  padding: 4rem 1rem;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.partners-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.partners-text {
+  flex: 1 1 40%;
+}
+.partner-header {
+  padding-top: 1rem;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.partner-title {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.partner-heading {
+  font-size: 42px;
+  font-weight: 700;
+  color: #2d3047;
+  margin-bottom: 20px;
+}
+
+.partner-heading span {
+  color: rgba(85, 187, 250, 0.9);
+}
+
+.partner-subtitle {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #666;
+}
+/* .section-subtitle {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.section-description {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+} */
+
+.read-more-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #f6c944;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+  background-color: #e0b739;
+}
+
+.logos-grid {
+  flex: 1 1 55%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.logo-item img {
+  max-width: 100%;
+  max-height: 70px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.logo-item img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
 
 
   /* Markets Section */
@@ -794,7 +926,8 @@ import Layout from '../layouts/Layout.astro';
   /* CTA Section */
   .cta {
     padding: 5rem 0;
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
+    background-color: rgba(85, 187, 250, 0.9);
     color: white;
     text-align: center;
   }
@@ -856,15 +989,17 @@ import Layout from '../layouts/Layout.astro';
 
   .client-logos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 3rem;
     align-items: center;
     justify-items: center;
   }
 
   .client-logo {
-    width: 180px;
-    height: 100px;
+    width: 120px;
+    height: 80px;
+    /* width: 180px;
+    height: 100px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -908,7 +1043,7 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .client-logos {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
   }
   
@@ -928,7 +1063,6 @@ import Layout from '../layouts/Layout.astro';
       grid-template-columns: 1fr;
     }
   }
-
 
   @media (max-width: 576px) {
     .container {

@@ -1,0 +1,125 @@
+---
+// Define the props to receive project data
+export interface Props {
+  name: string;
+  featured: string;
+  year: number;
+  scope: string;
+  description: string;
+  clientUrl: string;
+  location: string;
+  imageUrl: string;
+  slug: string;
+}
+
+const { name, featured, year, scope, description, clientUrl, location, imageUrl, slug } = Astro.props;
+
+// Truncate description for the card
+const truncatedDescription = description.length > 150 
+  ? description.substring(0, 150) + '...' 
+  : description;
+---
+
+<div class="project-card">
+  <a href={`/projects/${slug}`} class="project-link">
+    <div class="project-image">
+      <img src={imageUrl} alt={name} />
+      {featured === 'yes' && <span class="featured-badge">Featured</span>}
+    </div>
+    <div class="project-content">
+      <h3 class="project-title">{name}</h3>
+      <div class="project-meta">
+        <span class="project-year">{year}</span>
+        <span class="project-location">{location}</span>
+      </div>
+      <div class="project-scope">{scope}</div>
+      <!-- <p class="project-description">{truncatedDescription}</p> -->
+    </div>
+  </a>
+</div>
+
+<style>
+  .project-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+  }
+
+  .project-image {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .project-card:hover .project-image img {
+    transform: scale(1.05);
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ffcc00;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .project-content {
+    padding: 1.5rem;
+  }
+
+  .project-title {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: #333;
+  }
+
+  .project-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  .project-scope {
+    font-size: 0.9rem;
+    color: #0066cc;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #555;
+    margin: 0;
+  }
+</style>

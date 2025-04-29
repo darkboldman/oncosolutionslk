@@ -1,0 +1,177 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import projects from '../../data/projects.json';
+
+export async function getStaticPaths() {
+  return projects.map(project => {
+    return {
+      params: { slug: project.slug },
+      props: { project }
+    };
+  });
+}
+
+// Get the current slug from the URL
+const { slug } = Astro.params;
+
+// Find the project data directly from the JSON
+const project = projects.find(p => p.slug === slug);
+
+// Redirect if project not found
+if (!project) {
+  return Astro.redirect('/projects');
+}
+---
+
+<Layout title={`${project.name} | Our Project`}>
+  <div class="container">
+    <div class="back-link">
+        <a href="/projects">← Back to All Projects</a>
+      </div>
+    <div class="project-detail">
+      <div class="project-detail-header">
+        <h1>{project.name}</h1>
+        <div class="project-meta">
+          <div class="meta-item">
+            <span class="meta-label">Year:</span>
+            <span class="meta-value">{project.year}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Location:</span>
+            <span class="meta-value">{project.location}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Scope:</span>
+            <span class="meta-value">{project.scope}</span>
+          </div>
+          {project.clientUrl && (
+            <div class="meta-item">
+              <span class="meta-label">Client:</span>
+              <a href={project.clientUrl} target="_blank" rel="noopener noreferrer" class="client-link">
+                Visit Client
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div class="project-image-container">
+        <img src={project.imageUrl} alt={project.name} class="project-image" />
+      </div>
+
+      <div class="project-description">
+        <p>{project.description}</p>
+      </div>
+
+      <div class="back-link">
+        <a href="/projects">← Back to All Projects</a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .project-detail {
+    margin: 3rem 0 5rem;
+  }
+
+  .project-detail-header {
+    margin-bottom: 2rem;
+  }
+
+  .project-detail-header h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .meta-label {
+    font-weight: 600;
+    color: #555;
+  }
+
+  .meta-value {
+    color: #333;
+  }
+
+  .client-link {
+    color: #0066cc;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .client-link:hover {
+    color: #004d99;
+    text-decoration: underline;
+  }
+
+  .project-image-container {
+    width: 100%;
+    margin-bottom: 2.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .project-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .project-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 3rem;
+  }
+
+  .back-link {
+    margin-top: 2rem;
+  }
+
+  .back-link a {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s;
+  }
+
+  .back-link a:hover {
+    color: #004d99;
+    text-decoration: underline;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .project-detail-header h1 {
+      font-size: 2rem;
+    }
+
+    .project-meta {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>

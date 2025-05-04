@@ -1,0 +1,48 @@
+---
+import productsJson from '../data/products.json';
+import CategoryCard from './CategoryCard.astro';
+
+type Product = {
+  id: string;
+  name: string;
+  category: string;
+  shortDescription: string;
+  description: string;
+  highlights: { icon: string; text: string }[];
+  price: number;
+  featured: string;
+  stockStatus: string;
+  images: string[];
+  specifications: Record<string, string>;
+  documents: { name: string; file: string }[];
+};
+
+const products = productsJson as unknown as Product[];
+
+// Group by category → first image
+const categoryMap = new Map<string, string>();
+
+for (const product of products) {
+  const category = product.category?.trim();
+  if (category && !categoryMap.has(category)) {
+    categoryMap.set(category, product.images[0]);
+  }
+}
+
+---
+
+<section class="category-grid">
+  {Array.from(categoryMap.entries()).map(([category, image]) => (
+    <CategoryCard category={category} image={image} />
+  ))}
+</section>
+
+<style>
+.category-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 2rem;
+}
+</style>

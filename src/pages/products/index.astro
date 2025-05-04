@@ -3,6 +3,44 @@ import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import productsData from '../../data/products.json';
 
+// Extract unique categories
+// Slugify function (convert to lowercase, remove non-alphanumerics, replace spaces with hyphens)
+function slugify(str: string) {
+  return str.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
+}
+
+const categories = Array.from(
+  new Set(
+    productsData
+      .filter(product => product.category !== undefined)
+      .map(product => product.category)
+  )
+).sort();
+
+// Group products by category, including "All"
+const groupedProducts = [
+  {
+    slug: 'all',
+    label: 'All',
+    image: '/images/all-icon.png',  // Default image for "All" category
+    products: productsData
+  },
+  ...categories.map(category => {
+    // Find a product from each category to get the image (assuming first product for simplicity)
+    const categoryImage = productsData.find(p => p.category === category)?.catImage || '/images/default-category.png';
+
+    return {
+      slug: slugify(category),
+      label: category,
+      image: categoryImage, // Image now fetched from product data
+      products: productsData.filter(p => p.category === category)
+    };
+  })
+];
+
+
+
+
 // Sort products: featured products first, then by name
 const sortedProducts = [...productsData].sort((a, b) => {
   if (a.featured === "yes" && b.featured !== "yes") return -1;
@@ -31,11 +69,51 @@ function generatePaginationLink(pageNumber: number) {
 
 <Layout title="Products | LED Lighting Solutions">
   <div class="products-container">
-    <header class="products-header">
+    <!-- Category Tabs -->
+    <!-- Tabs -->
+    <div class="category-tabs">
+      {groupedProducts.map(({ slug, label, image }, index) => (
+        <span
+          role="button"
+          tabindex="0"
+          class={`tab-button ${index === 0 ? 'active-tab' : ''}`}
+          onclick={`showCategory('${slug}')`}
+        >
+          <img src={image} alt={label} class="tab-icon" />
+          {label}
+        </span>
+      ))}
+    </div>
+    
+
+    <!-- Panels -->
+    {groupedProducts.map(({ slug, products }, index) => (
+      <div 
+        class="category-panel" 
+        id={`panel-${slug}`} 
+        style={`display: ${index === 0 ? 'grid' : 'none'}`}
+      >
+        {products.map(product => (
+          <div class="product-item">
+            <ProductCard product={product} />
+          </div>
+        ))}
+      </div>
+    ))}
+
+
+    <!-- <header class="products-header">
       <h1>Our Products</h1>
       <p>Browse our selection of high-quality LED lighting products</p>
     </header>
-
+    <div class="category-links">
+      {categories.map(category => (
+        <a href={`#${category.toLowerCase()}`} class="category-link">
+          {category}
+        </a>
+      ))}
+    </div>
+    
     <div class="products-grid">
       {productsForCurrentPage.map(product => (
         <div class="product-item">
@@ -69,7 +147,7 @@ function generatePaginationLink(pageNumber: number) {
           </a>
         )}
       </div>
-    )}
+    )} -->
   </div>
 </Layout>
 
@@ -164,4 +242,131 @@ function generatePaginationLink(pageNumber: number) {
     background-color: #3182ce;
     color: white;
   }
+
+  .category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.tab-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #ffffff;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.tab-button:hover {
+  background-color: #ffffff;
+}
+
+.tab-button.active-tab {
+  background-color: #3182ce;
+  color: white;
+}
+
+.category-panel {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
+.category-tabs {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  scroll-snap-type: x mandatory;
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #edf2f7;
+  color: #2d3748;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  scroll-snap-align: start;
+  transition: background-color 0.3s;
+  max-width: 200px;  /* Set a maximum width for the tile */
+  height: 50px; /* Set height for the tile */
+  overflow: hidden; /* Hide any overflow */
+  position: relative;
+}
+
+.tab-icon {
+  width: 24px;  /* Set width of the image */
+  height: 24px; /* Set height of the image */
+  object-fit: contain; /* Ensure the image fits inside the container */
+}
+
+.tab-button:hover {
+  background-color: #e2e8f0;
+}
+
+.tab-button.active-tab {
+  background-color: #3182ce;
+  color: white;
+}
+
+
+@media (min-width: 640px) {
+  .category-panel {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .category-panel {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 </style>
+
+<script type="text/javascript">
+  function showCategory(slug) {
+    const panels = document.querySelectorAll('.category-panel');
+    const tabs = document.querySelectorAll('.tab-button');
+
+    panels.forEach(panel => {
+      panel.style.display = panel.id === `panel-${slug}` ? 'grid' : 'none';
+    });
+
+    tabs.forEach(tab => {
+      const isActive = tab.getAttribute('onclick')?.includes(slug);
+      tab.classList.toggle('active-tab', isActive);
+      if (isActive) {
+        tab.scrollIntoView({
+          behavior: 'smooth',
+          inline: 'center',
+          block: 'nearest' // ← prevents vertical scroll
+        });
+      }
+    });
+
+
+    // Update URL hash
+    history.replaceState(null, '', `#${slug}`);
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const hash = decodeURIComponent(location.hash.replace('#', ''));
+    const validPanel = document.getElementById(`panel-${hash}`);
+    if (validPanel) {
+      showCategory(hash);
+    } else {
+      showCategory('all');
+    }
+  });
+</script>
+
+

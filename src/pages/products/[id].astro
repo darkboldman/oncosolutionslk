@@ -32,7 +32,7 @@ const whatsappLink = `https://wa.me/61425890982?text=${encodeURIComponent(whatsa
       <div class="product-gallery">
         <div class="main-image-container">
           {images && images.length > 0 ? (
-            <img src={images[0]} alt={name} class="main-image" />
+            <img src={images[0]} alt={name} class="main-image" id="main-product-image" />
           ) : (
             <div class="placeholder-image">No Image Available</div>
           )}
@@ -41,7 +41,7 @@ const whatsappLink = `https://wa.me/61425890982?text=${encodeURIComponent(whatsa
         {images && images.length > 1 && (
           <div class="thumbnail-gallery">
             {images.map((image, index) => (
-              <div class="thumbnail-container">
+              <div class="thumbnail-container" data-image-src={image} data-index={index}>
                 <img src={image} alt={`${name} - Image ${index + 1}`} class="thumbnail" />
               </div>
             ))}
@@ -53,12 +53,12 @@ const whatsappLink = `https://wa.me/61425890982?text=${encodeURIComponent(whatsa
         <div class="product-info-section">
           <p class="product-description">{shortDescription}</p>
           
-          {description && (
-            <div class="product-full-description">
-              <p>{description}</p>
-            </div>
-          )}
-
+          <ul class="checkmark-list">
+            {(Array.isArray(product.description) ? product.description : [product.description]).map((descItem: string) => (
+              <li>{descItem}</li>
+            ))}
+          </ul>
+          
           {highlights && highlights.length > 0 && (
             <div class="product-highlights">
               {highlights.map(highlight => (
@@ -73,7 +73,7 @@ const whatsappLink = `https://wa.me/61425890982?text=${encodeURIComponent(whatsa
           )}
           
           <div class="product-meta">
-            <p class="product-price">${price.toFixed(2)}</p>
+            <!-- <p class="product-price">${price.toFixed(2)}</p> -->
             <p class="stock-status" data-status={stockStatus.toLowerCase().replace(/\s+/g, '-')}>
               {stockStatus}
             </p>
@@ -125,6 +125,47 @@ const whatsappLink = `https://wa.me/61425890982?text=${encodeURIComponent(whatsa
     </div>
   </div>
 </Layout>
+
+<script>
+  // Function to handle thumbnail clicks
+  function setupThumbnailGallery() {
+    const thumbnailContainers = document.querySelectorAll('.thumbnail-container');
+    const mainImage = document.getElementById('main-product-image') as HTMLImageElement;
+    
+    if (thumbnailContainers.length > 0 && mainImage) {
+      // Add active class to the first thumbnail by default
+      thumbnailContainers[0].classList.add('active');
+      
+      // Add click event listeners to each thumbnail
+      thumbnailContainers.forEach(container => {
+        container.addEventListener('click', () => {
+          // Update main image source
+          const imageSrc = container.getAttribute('data-image-src');
+          if (imageSrc) {
+            mainImage.src = imageSrc;
+            mainImage.classList.add('image-transition');
+            
+            // Remove active class from all thumbnails
+            thumbnailContainers.forEach(thumb => {
+              thumb.classList.remove('active');
+            });
+            
+            // Add active class to clicked thumbnail
+            container.classList.add('active');
+            
+            // Remove transition class after animation completes
+            setTimeout(() => {
+              mainImage.classList.remove('image-transition');
+            }, 300);
+          }
+        });
+      });
+    }
+  }
+  
+  // Wait for the DOM to be fully loaded
+  document.addEventListener('DOMContentLoaded', setupThumbnailGallery);
+</script>
 
 <style>
   .product-detail-container {
@@ -183,6 +224,7 @@ const whatsappLink = `https://wa.me/61425890982?text=${encodeURIComponent(whatsa
     border: 1px solid #e2e8f0;
     border-radius: 8px;
     overflow: hidden;
+    object-fit: cover;
     aspect-ratio: 4/3;
   }
 
@@ -195,6 +237,16 @@ const whatsappLink = `https://wa.me/61425890982?text=${encodeURIComponent(whatsa
 
   .main-image:hover {
     transform: scale(1.02);
+  }
+
+  /* Add transition for smooth image change */
+  .image-transition {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
   }
 
   .placeholder-image {
@@ -223,11 +275,20 @@ const whatsappLink = `https://wa.me/61425890982?text=${encodeURIComponent(whatsa
     border-radius: 4px;
     overflow: hidden;
     cursor: pointer;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
+    opacity: 0.7;
   }
 
   .thumbnail-container:hover {
     border-color: #3182ce;
+    opacity: 0.9;
+  }
+
+  /* Active thumbnail styling */
+  .thumbnail-container.active {
+    border: 2px solid #3182ce;
+    opacity: 1;
+    box-shadow: 0 0 0 1px rgba(49, 130, 206, 0.3);
   }
 
   .thumbnail {
@@ -263,6 +324,52 @@ const whatsappLink = `https://wa.me/61425890982?text=${encodeURIComponent(whatsa
     color: #4a5568;
     line-height: 1.6;
   }
+  .checkmark-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .checkmark-list li {
+      position: relative;
+      padding-left: 2rem; /* Space for checkmark */
+      margin-bottom: 0.75rem;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInUp 0.5s forwards;
+    }
+
+    /* Delay each item a bit for a nice staggered animation */
+    .checkmark-list li:nth-child(1) { animation-delay: 0.1s; }
+    .checkmark-list li:nth-child(2) { animation-delay: 0.3s; }
+    .checkmark-list li:nth-child(3) { animation-delay: 0.5s; }
+    .checkmark-list li:nth-child(4) { animation-delay: 0.7s; }
+    .checkmark-list li:nth-child(5) { animation-delay: 0.9s; }
+    .checkmark-list li:nth-child(6) { animation-delay: 1.2s; }
+    .checkmark-list li:nth-child(7) { animation-delay: 1.4s; }
+    /* ...add more if needed */
+
+    .checkmark-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.4rem;
+      width: 0.5rem;
+      height: 1rem;
+      border-right: 2px solid #28a745;
+      border-bottom: 2px solid #28a745;
+      transform: rotate(45deg);
+    }
+
+
+    /* Keyframes for smooth animation */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
 
   .product-meta {
     display: flex;

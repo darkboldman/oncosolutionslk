@@ -3,6 +3,7 @@
 import Layout from '../layouts/Layout.astro';
 import ProductCard from '../components/ProductCard.astro';
 import productsData from '../data/products.json'; 
+import CategoryGrid from '../components/CategoryGrid.astro';
 // Filter for featured products
 
 interface Product {
@@ -25,18 +26,57 @@ const featuredProducts = products.filter((product:Product) => product.featured =
 
 <Layout title="Smart Lighting Solutions | Professional Lighting Design & Automation">
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Innovative Lighting Solutions</h1>
-      <p>Design • Installation • Integration • Automation</p>
-      <h3>Certified & Trusted Expertise</h3>
-      <p>Philips Dynalite | Schneider C-Bus | Madrix DMX | DALI Control</p>
-      <div class="hero-buttons">
-        <a href="/projects" class="btn btn-primary">Our Projects</a>
-        <a href="/contact" class="btn btn-secondary">Contact Us</a>
+  <section class="hero ">
+    <div class="slider">
+      <div class="slides-container">
+        <!-- Slide 1 -->
+        <div class="slide" style="background-image: url('/images/projects/ulagalla-resort.jpg');">
+          <div class="content">
+            <h1>Awesome Bell Lamp</h1>
+            <p>High quality lighting solutions for every space, blending design and performance.</p>
+            <button>Shop Now</button>
+          </div>
+          <!-- <img src="/images/projects/ulagalla-resort.jpg" alt="Bell Lamp"> -->
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide" style="background-image: url('/images/projects/cinnamon-dhonveli.jpg');">
+          <div class="content">
+            <h1>Elegant Office Lighting</h1>
+            <p>Customizable LED systems perfect for corporate and modern office environments.</p>
+            <button>Discover</button>
+          </div>
+          <!-- <img src="/images/projects/cinnamon-dhonveli.jpg" alt="Office Lighting"> -->
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide" style="background-image: url('/images/projects/silver-ray.jpg');">
+          <div class="content">
+            <h1>Hospitality Lighting</h1>
+            <p>Enhance guest experiences with sophisticated lighting tailored for hospitality spaces.</p>
+            <button>Learn More</button>
+          </div>
+          <!-- <img src="/images/projects/silver-ray.jpg" alt="Hospitality Lighting"> -->
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide" style="background-image: url('/images/projects/royal-institute-colombo.jpg');">
+          <div class="content">
+            <h1>Residential Ambience</h1>
+            <p>Premium lighting solutions bringing warmth and elegance to your home.</p>
+            <button>Explore</button>
+          </div>
+          <!-- <img src="/images/projects/royal-institute-colombo.jpg" alt="Residential Lighting"> -->
+        </div>
       </div>
+
+      <!-- Navigation arrows -->
+      <button class="nav prev">&#10094;</button>
+      <button class="nav next">&#10095;</button>
     </div>
   </section>
+
+ 
 
   <!-- Services Section -->
   <section class="services-container">
@@ -380,6 +420,11 @@ const featuredProducts = products.filter((product:Product) => product.featured =
       </div>
     </div>
   </section>
+  <div class="section">
+    <div class="container">
+      <h2 class="section-title">Search by Category</h2>
+      <CategoryGrid />
+  </div>
 </Layout>
 
 <style>
@@ -403,24 +448,6 @@ const featuredProducts = products.filter((product:Product) => product.featured =
     margin: 0 auto;
     padding: 0 20px;
   }
-
-  /* .section-title {
-    text-align: center;
-    margin-bottom: 3rem;
-    font-size: 2.5rem;
-    color: var(--text-color);
-    position: relative;
-  } */
-
-  /* .section-title:after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: var(--primary-color);
-    margin: 15px auto 0;
-  } */
-
   /* Button Styles */
   .btn {
     display: inline-block;
@@ -453,41 +480,123 @@ const featuredProducts = products.filter((product:Product) => product.featured =
   }
 
   /* Hero Section */
+
   .hero {
-    height: 100vh;
-    min-height: 600px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/projects/army-banquet-welisara.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 20px;
-  }
-
-  .hero-content {
-    max-width: 800px;
-  }
-
-  .hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  }
-
-  .hero p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-  }
-
-  .hero-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-  }
+      background: #ffffff;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slider {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    .slides-container {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+    @keyframes zoomIn {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1); /* slight zoom */
+      }
+    }
+    .slide {
+      flex: 0 0 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem;
+      box-sizing: border-box;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 90vh;
+      position: relative;
+      text-align: center;
+      color: white;
+      animation: zoomIn 20s ease-in-out infinite alternate;
+    }
+    .content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+    .content::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(46, 46, 46, 0.2); dark transparent overlay
+      z-index: 1;
+    }
+    .content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .content p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    
+    .slide .content {
+      max-width: 800px;
+    }
+    .slide h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--text-light);
+      z-index: 5;
+    }
+    .slide p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: var(--text-light);
+    }
+    .slide button {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .slide button:hover {
+      background: #555;
+    }
+    .slide img {
+      max-width: 1200px;
+      width: 100%;
+      object-fit: contain;
+    }
+    .nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(182, 181, 181, 0.5);
+      color: #fff;
+      border: none;
+      font-size: 2rem;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      z-index: 10;
+    }
+    .nav.prev {
+      left: 10px;
+    }
+    .nav.next {
+      right: 10px;
+    }
 
   /* Services Section */
   .services-container {
@@ -747,41 +856,6 @@ const featuredProducts = products.filter((product:Product) => product.featured =
     margin-top: 2rem;
   }
 
-  /* Brand Partners Section */
-  /* .partners {
-    padding: 5rem 0;
-    background-color: white;
-  }
-
-  .logos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-gap: 2rem;
-    align-items: center;
-    justify-items: center;
-  }
-  .logos-grid img {
-    max-width: 100%;
-    max-height: 100px;
-    height: auto;
-    object-fit: contain;
-  }
-
-  .logo-item {
-    width: 150px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    filter: grayscale(100%);
-    opacity: 0.7;
-    transition: var(--transition);
-  }
-
-  .logo-item:hover {
-    filter: grayscale(0);
-    opacity: 1;
-  } */
   .partners {
   padding: 4rem 1rem;
   background-color: #ffffff;
@@ -833,25 +907,7 @@ const featuredProducts = products.filter((product:Product) => product.featured =
   margin: 0 auto;
   color: #666;
 }
-/* .section-subtitle {
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #777;
-  margin-bottom: 0.5rem;
-}
 
-.section-title {
-  font-size: 1.75rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.section-description {
-  font-size: 1rem;
-  color: #444;
-  margin-bottom: 1.5rem;
-} */
 
 .read-more-btn {
   display: inline-block;
@@ -1086,3 +1142,35 @@ const featuredProducts = products.filter((product:Product) => product.featured =
     }
   }
 </style>
+<!-- hero section script -->
+<script type="module">
+  const slidesContainer = document.querySelector('.slides-container');
+  const slides = document.querySelectorAll('.slide');
+  const next = document.querySelector('.next');
+  const prev = document.querySelector('.prev');
+  let currentIndex = 0;
+
+  function updateSlidePosition() {
+    slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  next.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlidePosition();
+  });
+
+  prev.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateSlidePosition();
+  });
+
+  // Optional: Auto-slide
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlidePosition();
+  }, 5000);
+</script>
+
+
+  
+  

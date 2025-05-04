@@ -806,26 +806,362 @@
     "category": "Sensors",
     "catImage": "/images/category/elko-twilight-sensor.jpg",
     "name": "Microwave motion Sensor-MW-1",
-    "shortDescription": "Reliable automation starts with high-quality components, and our carefully selected sensors have consistently proven their durability and performance. Tested across numerous projects in Sri Lanka, they deliver dependable automation solutions you can trust.",
-    "description": "This 5-meter flexible LED strip light provides a warm white glow, perfect for creating ambient lighting, under-cabinet lighting, cove lighting, or highlighting architectural features. It features high-quality LEDs, a strong adhesive backing for simple installation, and can be cut at marked intervals to fit your specific needs. Low power consumption and a long lifespan make it an energy-efficient choice.",
+    "Brand": "Microwave motion Sensor-MW-1",
+    "shortDescription": "Our Microwave Motion Sensors are designed for precision, offering highly sensitive and reliable motion detection. Unlike traditional infrared sensors, microwave sensors use high-frequency electromagnetic waves to detect movement, providing greater accuracy, wider coverage, and improved performance in challenging environments.",
+    "description": ["Reliable accurate detection of motion", "Very low no laod power consumption", "Affordable quality product", "Safety certified product", "Compact design"],
+    "highlights": [
+      {
+        "icon": "sensor_occupied",
+        "text": "Ultra Sensitive"
+      },
+      {
+        "icon": "crop_landscape",
+        "text": "Wide Coverage"
+      },
+      {
+        "icon": "energy_savings_leaf",
+        "text": "Eco Friendly"
+      },
+      {
+        "icon": "compress",
+        "text": "Compact Design"
+      }
+    ],
     "price": 19.99,
     "featured": "no",
     "stockStatus": "In stock",
     "images": [
-      "/images/products/600mm-900mm-1200mm-Black-White-Pendant-Aluminium-LED-Profile-for-LED-Ring-Light.jpg",
-      "/images/products/flexible-led-strip-2.jpg",
-      "/images/products/flexible-led-strip-3.jpg"
+      "/images/products/merytec-microwave-sensor.jpg"
     ],
     "specifications": {
-      "Length": "5 meters",
-      "Color Temperature": "3000K (Warm White)",
-      "Voltage": "12V DC",
-      "Power Consumption": "9.6W/meter",
-      "LED Type": "SMD 2835",
-      "LED Density": "60 LEDs/meter",
-      "CRI": ">80",
+      "Detection Area": "12mx6m",
+      "Brand": "Merrytek",
+      "Frequency": "5.8GHz ±75MHz | ISM Wave Band",
+      "Detection Capability": "Plastic | Glass | Non-Metal Thin material",
+      "Inrush Current": "60A 230V AC",
+      "Input": "230V AC 50Hz",
+      "Detection Time": "0.5 ∼ 3ms",
+      "function": "On | Off control On | Off",
+      "Detection Angle∢": "Wall Mount: 150° Ceiling Mount: 360°",
+      "Hold Time": "CH-1:10s-30min | CH-2:N/A",
       "Waterproof Rating": "IP20 (Indoor Use)",
-      "Lifespan": "50,000 hours"
+      "Output Current": "10A",
+      "Dimension": "82x36.5x25.5 mm",
+      "Material": "Plastic"
+    },
+    "documents": [
+      {
+        "name": "Product Brochure",
+        "file": "/documents/flexible-led-strip-brochure.pdf"
+      },
+      {
+        "name": "Compliance Certificate",
+        "file": "/documents/flexible-led-strip-compliance.pdf"
+      },
+      {
+        "name": "Test Report",
+        "file": "/documents/flexible-led-strip-test-report.pdf"
+      }
+    ]
+  },
+  {
+    "id": "Microwave motion Sensor-MW-2",
+    "category": "Sensors",
+    "catImage": "/images/category/elko-twilight-sensor.jpg",
+    "name": "Microwave motion Sensor-MW-2",
+    "shortDescription": "Our Microwave Motion Sensors are designed for precision, offering highly sensitive and reliable motion detection. Unlike traditional infrared sensors, microwave sensors use high-frequency electromagnetic waves to detect movement, providing greater accuracy, wider coverage, and improved performance in challenging environments.",
+    "description": ["Reliable accurate detection of motion", "Very low no laod power consumption", "Affordable quality product", "Safety certified product", "Compact design"],
+    "highlights": [
+      {
+        "icon": "sensor_occupied",
+        "text": "Ultra Sensitive"
+      },
+      {
+        "icon": "crop_landscape",
+        "text": "Wide Coverage"
+      },
+      {
+        "icon": "energy_savings_leaf",
+        "text": "Eco Friendly"
+      },
+      {
+        "icon": "compress",
+        "text": "Compact Design"
+      }
+    ],
+    "price": 19.99,
+    "featured": "no",
+    "stockStatus": "In stock",
+    "images": [
+      "/images/products/merytec-microwave-sensor-mc034s-back.jpg",
+      "/images/products/merytec-microwave-sensor-mc034s.jpg"
+    ],
+    "specifications": {
+      "Detection Area": "10mx4m",
+      "Brand": "Merrytek",
+      "Frequency": "5.8GHz ±75MHz | ISM Wave Band",
+      "Detection Capability": "Plastic | Glass | Non-Metal Thin material",
+      "Inrush Current": "60A 230V AC",
+      "Input": "230V AC 50Hz",
+      "Detection Time": "0.5 ∼ 3ms",
+      "function": "On | Off control On | Off",
+      "Detection Angle∢": "Wall Mount: 150° Ceiling Mount: 360°",
+      "Hold Time": "CH-1:5s-10min | CH-2:5s-20min",
+      "Waterproof Rating": "IP20 (Indoor Use)",
+      "Output Current": "10A",
+      "Dimension": "82x36.5x25.5 mm",
+      "Material": "Plastic"
+    },
+    "documents": [
+      {
+        "name": "Product Brochure",
+        "file": "/documents/flexible-led-strip-brochure.pdf"
+      },
+      {
+        "name": "Compliance Certificate",
+        "file": "/documents/flexible-led-strip-compliance.pdf"
+      },
+      {
+        "name": "Test Report",
+        "file": "/documents/flexible-led-strip-test-report.pdf"
+      }
+    ]
+  },
+  {
+    "id": "Microwave motion Sensor-MW-IP65",
+    "category": "Sensors",
+    "catImage": "/images/category/elko-twilight-sensor.jpg",
+    "name": "Microwave motion Sensor-MW-IP65",
+    "shortDescription": "Our Microwave Motion Sensors are designed for precision, offering highly sensitive and reliable motion detection. Unlike traditional infrared sensors, microwave sensors use high-frequency electromagnetic waves to detect movement, providing greater accuracy, wider coverage, and improved performance in challenging environments.",
+    "description": ["Reliable accurate detection of motion", "Very low no laod power consumption", "Affordable quality product", "Safety certified product", "Compact design"],
+    "highlights": [
+      {
+        "icon": "sensor_occupied",
+        "text": "Ultra Sensitive"
+      },
+      {
+        "icon": "crop_landscape",
+        "text": "Wide Coverage"
+      },
+      {
+        "icon": "energy_savings_leaf",
+        "text": "Eco Friendly"
+      },
+      {
+        "icon": "compress",
+        "text": "Compact Design"
+      }
+    ],
+    "price": 19.99,
+    "featured": "no",
+    "stockStatus": "In stock",
+    "images": [
+      "/images/products/ip-65-motion-detectors.jpg"
+    ],
+    "specifications": {
+      "Detection Area": "12mx6m",
+      "Brand": "Merrytek",
+      "Frequency": "5.8GHz ±75MHz | ISM Wave Band",
+      "Detection Capability": "Plastic | Glass | Non-Metal Thin material",
+      "Inrush Current": "60A 230V AC",
+      "Input": "230V AC 50Hz",
+      "Detection Time": "0.5 ∼ 3ms",
+      "function": "On | Off control On | Off",
+      "Detection Angle∢": "Wall Mount: N/A Ceiling Mount: 360°",
+      "Hold Time": "CH-1:5s-20min | CH-2:N/A",
+      "Waterproof Rating": "IP65 (Outdoor Use)",
+      "Output Current": "----",
+      "Dimension": "----",
+      "Material": "Plastic"
+    },
+    "documents": [
+      {
+        "name": "Product Brochure",
+        "file": "/documents/flexible-led-strip-brochure.pdf"
+      },
+      {
+        "name": "Compliance Certificate",
+        "file": "/documents/flexible-led-strip-compliance.pdf"
+      },
+      {
+        "name": "Test Report",
+        "file": "/documents/flexible-led-strip-test-report.pdf"
+      }
+    ]
+  },
+  {
+    "id": "Microwave motion Sensor-Occuswitch",
+    "category": "Sensors",
+    "catImage": "/images/category/elko-twilight-sensor.jpg",
+    "name": "Microwave motion Sensor-Occuswitch",
+    "shortDescription": "Our Microwave Motion Sensors are designed for precision, offering highly sensitive and reliable motion detection. Unlike traditional infrared sensors, microwave sensors use high-frequency electromagnetic waves to detect movement, providing greater accuracy, wider coverage, and improved performance in challenging environments.",
+    "description": ["Reliable accurate detection of motion", "Very low no laod power consumption", "Affordable quality product", "Safety certified product", "Compact design"],
+    "highlights": [
+      {
+        "icon": "sensor_occupied",
+        "text": "Ultra Sensitive"
+      },
+      {
+        "icon": "crop_landscape",
+        "text": "Wide Coverage"
+      },
+      {
+        "icon": "energy_savings_leaf",
+        "text": "Eco Friendly"
+      },
+      {
+        "icon": "compress",
+        "text": "Compact Design"
+      }
+    ],
+    "price": 19.99,
+    "featured": "no",
+    "stockStatus": "In stock",
+    "images": [
+      "/images/products/philips-occuswitch-occupancy-sensor.jpg",
+      "/images/products/philips-occuswitch-occupancy-sensor-back.jpg"
+    ],
+    "specifications": {
+      "Detection Area": "5mx5mx4m",
+      "Brand": "Phillips",
+      "Frequency": "N/A",
+      "Detection Capability": "Open Spaces",
+      "Inrush Current": "60A 230V AC",
+      "Input": "230V AC 50Hz",
+      "Detection Time": "0.5 ∼ 3ms",
+      "function": "On | Off control On | Off",
+      "Detection Angle∢": "Wall Mount: 150° Ceiling Mount: 360°",
+      "Hold Time": "CH-1:5s-30min | CH-2:N/A",
+      "Waterproof Rating": "IP20 (Indoor Use)",
+      "Output Current": "6A",
+      "Dimension": "95x40mm",
+      "Material": "Plastic"
+    },
+    "documents": [
+      {
+        "name": "Product Brochure",
+        "file": "/documents/flexible-led-strip-brochure.pdf"
+      },
+      {
+        "name": "Compliance Certificate",
+        "file": "/documents/flexible-led-strip-compliance.pdf"
+      },
+      {
+        "name": "Test Report",
+        "file": "/documents/flexible-led-strip-test-report.pdf"
+      }
+    ]
+  },
+  {
+    "id": "Schneider® PIR occupancy sensor - Recessed",
+    "category": "Sensors",
+    "catImage": "/images/category/elko-twilight-sensor.jpg",
+    "name": "Schneider® PIR occupancy sensors - Recessed",
+    "shortDescription": "Our Microwave Motion Sensors are designed for precision, offering highly sensitive and reliable motion detection. Unlike traditional infrared sensors, microwave sensors use high-frequency electromagnetic waves to detect movement, providing greater accuracy, wider coverage, and improved performance in challenging environments.",
+    "description": ["PIR Occupancy detection", "15° adjustable sensor area increments", "Affordable quality product", "Safety certified product", "Compact design"],
+    "highlights": [
+      {
+        "icon": "sensor_occupied",
+        "text": "Reliable Sensitivity"
+      },
+      {
+        "icon": "crop_landscape",
+        "text": "Wide Coverage"
+      },
+      {
+        "icon": "energy_savings_leaf",
+        "text": "Eco Friendly"
+      },
+      {
+        "icon": "compress",
+        "text": "Compact Design"
+      }
+    ],
+    "price": 19.99,
+    "featured": "no",
+    "stockStatus": "In stock",
+    "images": [
+      "/images/products/Argus-motion-sensors.jpg",
+      "/images/products/Argus-motion-sensors-box.jpg"
+    ],
+    "specifications": {
+      "Detection Area": "Radius:7m | Height:2.5m",
+      "Brand": "Schneider",
+      "Frequency": "N/A",
+      "Detection Capability": "Open Spaces",
+      "Input capability": "Push-Button, Electonic Insert",
+      "Input": "230V AC 50Hz",
+      "Detection Time": "0.5 ∼ 3ms",
+      "function": "On | Off control On | Off",
+      "Detection Angle∢": "Ceiling Mount: 0°-360°",
+      "Hold Time": "CH-1: 10s-30min | CH-2:N/A",
+      "Waterproof Rating": "IP20 (Indoor Use)",
+      "Output Current": "10A",
+      "Dimension": "11.9x11.8x7.4mm",
+      "Material": "Polycarbonate"
+    },
+    "documents": [
+      {
+        "name": "Product Brochure",
+        "file": "/documents/flexible-led-strip-brochure.pdf"
+      },
+      {
+        "name": "Compliance Certificate",
+        "file": "/documents/flexible-led-strip-compliance.pdf"
+      },
+      {
+        "name": "Test Report",
+        "file": "/documents/flexible-led-strip-test-report.pdf"
+      }
+    ]
+  },
+  {
+    "id": "Schneider® PIR occupancy sensor - Surface",
+    "category": "Sensors",
+    "catImage": "/images/category/elko-twilight-sensor.jpg",
+    "name": "Schneider® PIR occupancy sensors - Surface",
+    "shortDescription": "Our Microwave Motion Sensors are designed for precision, offering highly sensitive and reliable motion detection. Unlike traditional infrared sensors, microwave sensors use high-frequency electromagnetic waves to detect movement, providing greater accuracy, wider coverage, and improved performance in challenging environments.",
+    "description": ["PIR Occupancy detection", "15° adjustable sensor area increments", "Affordable quality product", "Safety certified product", "Compact design"],
+    "highlights": [
+      {
+        "icon": "sensor_occupied",
+        "text": "Reliable Sensitivity"
+      },
+      {
+        "icon": "crop_landscape",
+        "text": "Wide Coverage"
+      },
+      {
+        "icon": "energy_savings_leaf",
+        "text": "Eco Friendly"
+      },
+      {
+        "icon": "compress",
+        "text": "Compact Design"
+      }
+    ],
+    "price": 19.99,
+    "featured": "no",
+    "stockStatus": "In stock",
+    "images": [
+      "/images/products/Argus-motion-sensors-surface.jpg",
+      "/images/products/argus-occupancy-sensor.png"
+    ],
+    "specifications": {
+      "Detection Area": "Radius:7m | Height:2.5m",
+      "Brand": "Schneider",
+      "Frequency": "N/A",
+      "Detection Capability": "Open Spaces",
+      "Input capability": "Push-Button, Electonic Insert",
+      "Input": "230V AC 50Hz",
+      "Detection Time": "0.5 ∼ 3ms",
+      "function": "On | Off control On | Off",
+      "Detection Angle∢": "Ceiling Mount: 0°-360°",
+      "Hold Time": "CH-1: 10s-30min | CH-2:N/A",
+      "Waterproof Rating": "IP20 (Indoor Use)",
+      "Output Current": "10A",
+      "Dimension": "18x14.2x10mm",
+      "Material": "Polycarbonate"
     },
     "documents": [
       {

@@ -1179,29 +1179,140 @@
     ]
   },
   {
-    "id": "flexible-led-strip",
-    "category": "Clipsal C-Bus",
-    "name": "Flexible LED Strip Light (Warm White)",
-    "shortDescription": "Versatile and easy to install lighting for various applications.",
-    "description": "This 5-meter flexible LED strip light provides a warm white glow, perfect for creating ambient lighting, under-cabinet lighting, cove lighting, or highlighting architectural features. It features high-quality LEDs, a strong adhesive backing for simple installation, and can be cut at marked intervals to fit your specific needs. Low power consumption and a long lifespan make it an energy-efficient choice.",
+    "id": "Light sensors | Day light sensors - ELKO",
+    "category": "Sensors",
+    "name": "Light sensors | Day light sensors",
+    "shortDescription": "Automatically switch street lights, garden lights, shop windows, and displays based on ambient light levels. The SKS-100 uses an external sensor to monitor brightness and activates lighting according to your set threshold — simple, efficient, and reliable.",
+    "description": ["Automatic light control based on ambient brightness", "Ideal for outdoor and commercial applications", "Easy setting of switching levels directly on the device", "Energy-saving and weather-resistant design", "Control input for additional control", "Adjustable time delay to eliminate short term fluctuation in illumination", "Surface or DIN rail mount"],
     "price": 19.99,
-    "featured": "yes",
-    "stockStatus": "In stock",
+    "featured": "no",
+    "stockStatus": "Order on demand",
     "images": [
-      "/images/products/wiser-app-on-ipad.jpg",
-      "/images/products/flexible-led-strip-2.jpg",
-      "/images/products/flexible-led-strip-3.jpg"
+      "/images/products/elko-twilight-sensor.jpg",
+      "/images/products/elko-twilight-sensor-module.jpg"
     ],
     "specifications": {
-      "Length": "5 meters",
-      "Color Temperature": "3000K (Warm White)",
-      "Voltage": "12V DC",
-      "Power Consumption": "9.6W/meter",
-      "LED Type": "SMD 2835",
-      "LED Density": "60 LEDs/meter",
-      "CRI": ">80",
-      "Waterproof Rating": "IP20 (Indoor Use)",
-      "Lifespan": "50,000 hours"
+      "Detection": "Light intensity",
+      "Brand": "Elko",
+      "Function": "On - Off Control",
+      "Intensity Range": "Set 1: 1 - 100Lux | Set 2:100 - 50,000Lux",
+      "No of Terminals": "1 x Changeover(AgSnO2)",
+      "Dimension": "90x17.6x64 mm",
+      "Waterproof Rating": "Module:IP20 | Sensor:IP44",
+      "Material": "Plastic"
+    },
+    "documents": [
+      {
+        "name": "Product Brochure",
+        "file": "/documents/flexible-led-strip-brochure.pdf"
+      },
+      {
+        "name": "Compliance Certificate",
+        "file": "/documents/flexible-led-strip-compliance.pdf"
+      },
+      {
+        "name": "Test Report",
+        "file": "/documents/flexible-led-strip-test-report.pdf"
+      }
+    ]
+  },
+  {
+    "id": "Light sensors | Day light sensors - Merrytek",
+    "category": "Sensors",
+    "name": "Light sensors | Day light sensors",
+    "shortDescription": "Automatically switch street lights, garden lights, shop windows, and displays based on ambient light levels. The SKS-100 uses an external sensor to monitor brightness and activates lighting according to your set threshold — simple, efficient, and reliable.",
+    "description": ["Automatic light control based on ambient brightness", "Ideal for outdoor and commercial applications", "Easy setting of switching levels directly on the device", "Energy-saving and weather-resistant design", "Control input for additional control", "Adjustable time delay to eliminate short term fluctuation in illumination", "Surface or DIN rail mount"],
+    "price": 19.99,
+    "featured": "no",
+    "stockStatus": "Order on demand",
+    "images": [
+      "/images/products/merrytek-daylight-sensor-ms02.jpg",
+      "/images/products/merrytek-daylight-sensor-ms02-sideview.jpg"
+    ],
+    "specifications": {
+      "Detection": "Light intensity",
+      "Brand": "Merrytek",
+      "Function": "On - Off Control",
+      "Intensity Range": "N/A",
+      "No of Terminals": "1 x Input | 1 x Output",
+      "Switch On": "2|10|25|50|100|150|200",
+      "Dimension": "50x36x23 mm",
+      "Waterproof Rating": "IP20",
+      "Material": "Plastic"
+    },
+    "documents": [
+      {
+        "name": "Product Brochure",
+        "file": "/documents/flexible-led-strip-brochure.pdf"
+      },
+      {
+        "name": "Compliance Certificate",
+        "file": "/documents/flexible-led-strip-compliance.pdf"
+      },
+      {
+        "name": "Test Report",
+        "file": "/documents/flexible-led-strip-test-report.pdf"
+      }
+    ]
+  },
+  {
+    "id": "PIR Motion Wardrobe Sensor - Merrytek",
+    "category": "Sensors",
+    "name": "PIR Motion Wardrobe Sensor - Merrytek",
+    "shortDescription": "Open your wardrobe — lights turn on automatically Close it — lights turn off. Save energy and enjoy effortless, motion-activated lighting with our compact PIR sensor. Easy to install. Smart. Efficient.",
+    "description": ["Motion-Activated: Lights turn on automatically when you open your wardrobe.", "Energy Efficient: Lights switch off after a set time without movement.", "Easy Installation: Compact and discreet design fits neatly inside wardrobes, cabinets, and closets.", "Smart Sensitivity: Advanced PIR technology ensures accurate motion detection with minimal false triggers.", "Customizable Timing: Set delay times according to your preference."],
+    "price": 19.99,
+    "featured": "no",
+    "stockStatus": "In stock",
+    "images": [
+      "/images/products/merrytek-proximity-pir-cupboard-sensor.png"
+    ],
+    "specifications": {
+      "Detection": "Motion",
+      "Brand": "Merrytek",
+      "Function": "On - Off Control",
+      "Sensing Distance": "100 cm",
+      "Installation": "Surface",
+      "Dimension": "50x36x23 mm",
+      "Waterproof Rating": "IP20",
+      "Material": "Plastic"
+    },
+    "documents": [
+      {
+        "name": "Product Brochure",
+        "file": "/documents/flexible-led-strip-brochure.pdf"
+      },
+      {
+        "name": "Compliance Certificate",
+        "file": "/documents/flexible-led-strip-compliance.pdf"
+      },
+      {
+        "name": "Test Report",
+        "file": "/documents/flexible-led-strip-test-report.pdf"
+      }
+    ]
+  },
+  {
+    "id": "PIR Proximity Wardrobe Sensor - Merrytek",
+    "category": "Sensors",
+    "name": "PIR Proximity Wardrobe Sensor - Merrytek",
+    "shortDescription": "Discover a smarter way to light your wardrobes, cabinets, and closets with the Merrytek PIR Proximity Wardrobe Sensor. Designed with precision and convenience in mind, this sensor offers effortless, hands-free illumination the moment you reach for your belongings — and powers down automatically to save energy when no longer needed.",
+    "description": ["Motion-Activated: Lights turn on automatically when you open your wardrobe.", "Energy Efficient: Lights switch off after a set time without movement.", "Easy Installation: Compact and discreet design fits neatly inside wardrobes, cabinets, and closets.", "Smart Sensitivity: Advanced PIR technology ensures accurate motion detection with minimal false triggers.", "Customizable Timing: Set delay times according to your preference."],
+    "price": 19.99,
+    "featured": "no",
+    "stockStatus": "In stock",
+    "images": [
+      "/images/products/merrytek-proximity-pir-cupboard-sensor.png"
+    ],
+    "specifications": {
+      "Detection": "Motion",
+      "Brand": "Merrytek",
+      "Function": "On - Off Control",
+      "Sensing Distance": "100 cm",
+      "Installation": "Surface",
+      "Dimension": "50x36x23 mm",
+      "Waterproof Rating": "IP20",
+      "Material": "Plastic"
     },
     "documents": [
       {

@@ -3,55 +3,45 @@ import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import productsData from '../../data/products.json';
 
-// Extract unique categories
 // Slugify function (convert to lowercase, remove non-alphanumerics, replace spaces with hyphens)
-function slugify(str: string) {
+function slugify(str: string): string {
   return str.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
 }
 
+// Helper function to safely get search params with type safety
+function getQueryParam(param: string, defaultValue: string = ''): string {
+  const value = Astro.url.searchParams.get(param);
+  return value !== null ? value : defaultValue;
+}
+
+// Extract unique categories
 const categories = Array.from(
   new Set(
     productsData
       .filter(product => product.category !== undefined)
-      .map(product => product.category)
+      .map(product => product.category as string)
   )
 ).sort();
 
-// Group products by category, including "All"
-const groupedProducts = [
-  {
-    slug: 'all',
-    label: 'All',
-    image: '/images/all-icon.png',  // Default image for "All" category
-    products: productsData
-  },
-  ...categories.map(category => {
-    // Find a product from each category to get the image (assuming first product for simplicity)
-    const categoryImage = productsData.find(p => p.category === category)?.catImage || '/images/default-category.png';
+// Get current page and category information
+const currentCategory = getQueryParam('category', 'all');
+const currentPage = parseInt(getQueryParam('page', '1'));
 
-    return {
-      slug: slugify(category),
-      label: category,
-      image: categoryImage, // Image now fetched from product data
-      products: productsData.filter(p => p.category === category)
-    };
-  })
-];
-
-
-
+// Filter products based on selected category
+let filteredProducts = currentCategory === 'all' 
+  ? [...productsData] 
+  : productsData.filter(p => p.category && slugify(p.category) === currentCategory);
 
 // Sort products: featured products first, then by name
-const sortedProducts = [...productsData].sort((a, b) => {
+filteredProducts.sort((a, b) => {
   if (a.featured === "yes" && b.featured !== "yes") return -1;
   if (a.featured !== "yes" && b.featured === "yes") return 1;
   return a.name.localeCompare(b.name);
 });
 
-// Get the current page from the URL query parameter
-const currentPage = parseInt(Astro.url.searchParams.get('page') || '1');
+// Set up pagination
 const productsPerPage = 12;
-const totalProducts = sortedProducts.length;
+const totalProducts = filteredProducts.length;
 const totalPages = Math.ceil(totalProducts / productsPerPage);
 
 // Calculate the start and end indices for the current page
@@ -59,73 +49,86 @@ const startIndex = (currentPage - 1) * productsPerPage;
 const endIndex = Math.min(startIndex + productsPerPage, totalProducts);
 
 // Get products for the current page
-const productsForCurrentPage = sortedProducts.slice(startIndex, endIndex);
+const productsForCurrentPage = filteredProducts.slice(startIndex, endIndex);
 
-// Generate pagination links
-function generatePaginationLink(pageNumber: number) {
-  return pageNumber === 1 ? '/products' : `/products?page=${pageNumber}`;
+// Prepare category data for tabs
+const categoryTabs = [
+  {
+    slug: 'all',
+    label: 'All',
+    image: '/images/all-icon.png',  // Default image for "All" category
+  },
+  ...categories.map(category => {
+    // Find a product from each category to get the image
+    const categoryImage = productsData.find(p => p.category === category)?.catImage || '/images/default-category.png';
+    
+    return {
+      slug: slugify(category),
+      label: category,
+      image: categoryImage,
+    };
+  })
+];
+
+// Generate pagination link with category preservation
+function generatePaginationLink(pageNumber: number, category: string): string {
+  const baseUrl = '/products';
+  let url = baseUrl;
+  
+  // Add category parameter if not "all"
+  if (category !== 'all') {
+    url += `?category=${category}`;
+  }
+  
+  // Add page parameter if not page 1 or if we already have a category parameter
+  if (pageNumber !== 1) {
+    url += category !== 'all' ? `&page=${pageNumber}` : `?page=${pageNumber}`;
+  }
+  
+  return url;
 }
 ---
 
 <Layout title="Products | LED Lighting Solutions">
   <div class="products-container">
-    <!-- Category Tabs -->
-    <!-- Tabs -->
-    <div class="category-tabs">
-      {groupedProducts.map(({ slug, label, image }, index) => (
-        <span
-          role="button"
-          tabindex="0"
-          class={`tab-button ${index === 0 ? 'active-tab' : ''}`}
-          onclick={`showCategory('${slug}')`}
-        >
-          <img src={image} alt={label} class="tab-icon" />
-          {label}
-        </span>
-      ))}
-    </div>
-    
-
-    <!-- Panels -->
-    {groupedProducts.map(({ slug, products }, index) => (
-      <div 
-        class="category-panel" 
-        id={`panel-${slug}`} 
-        style={`display: ${index === 0 ? 'grid' : 'none'}`}
-      >
-        {products.map(product => (
-          <div class="product-item">
-            <ProductCard product={product} />
-          </div>
-        ))}
-      </div>
-    ))}
-
-
-    <!-- <header class="products-header">
+    <header class="products-header">
       <h1>Our Products</h1>
       <p>Browse our selection of high-quality LED lighting products</p>
     </header>
-    <div class="category-links">
-      {categories.map(category => (
-        <a href={`#${category.toLowerCase()}`} class="category-link">
-          {category}
+
+    <!-- Category Tabs -->
+    <div class="category-tabs">
+      {categoryTabs.map(({ slug, label, image }) => (
+        <a 
+          href={slug === 'all' ? '/products' : `/products?category=${slug}`}
+          class={`tab-button ${currentCategory === slug ? 'active-tab' : ''}`}
+        >
+          <img src={image} alt={label} class="tab-icon" />
+          {label}
         </a>
       ))}
     </div>
     
+    <!-- Products Grid - Single display area for all products -->
     <div class="products-grid">
-      {productsForCurrentPage.map(product => (
-        <div class="product-item">
-          <ProductCard product={product} />
+      {productsForCurrentPage.length > 0 ? (
+        productsForCurrentPage.map(product => (
+          <div class="product-item">
+            <ProductCard product={product} />
+          </div>
+        ))
+      ) : (
+        <div class="no-products">
+          <p>No products found in this category.</p>
         </div>
-      ))}
+      )}
     </div>
 
+    {/* Pagination - Only show if there are multiple pages */}
     {totalPages > 1 && (
       <div class="pagination">
         {currentPage > 1 && (
-          <a href={generatePaginationLink(currentPage - 1)} class="pagination-link prev">
+          <a href={generatePaginationLink(currentPage - 1, currentCategory)} class="pagination-link prev">
             &larr; Previous
           </a>
         )}
@@ -133,7 +136,7 @@ function generatePaginationLink(pageNumber: number) {
         <div class="pagination-numbers">
           {Array.from({ length: totalPages }, (_, i) => i + 1).map(pageNum => (
             <a 
-              href={generatePaginationLink(pageNum)} 
+              href={generatePaginationLink(pageNum, currentCategory)} 
               class={`pagination-number ${pageNum === currentPage ? 'active' : ''}`}
             >
               {pageNum}
@@ -142,12 +145,12 @@ function generatePaginationLink(pageNumber: number) {
         </div>
         
         {currentPage < totalPages && (
-          <a href={generatePaginationLink(currentPage + 1)} class="pagination-link next">
+          <a href={generatePaginationLink(currentPage + 1, currentCategory)} class="pagination-link next">
             Next &rarr;
           </a>
         )}
       </div>
-    )} -->
+    )}
   </div>
 </Layout>
 
@@ -178,6 +181,15 @@ function generatePaginationLink(pageNumber: number) {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 2rem;
+    min-height: 300px; /* Ensure grid has minimum height even when empty */
+  }
+
+  .no-products {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 0;
+    color: #718096;
+    font-size: 1.25rem;
   }
 
   @media (min-width: 640px) {
@@ -244,129 +256,75 @@ function generatePaginationLink(pageNumber: number) {
   }
 
   .category-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-.tab-button {
-  padding: 0.5rem 1rem;
-  border: none;
-  background-color: #ffffff;
-  border-radius: 0.375rem;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.tab-button:hover {
-  background-color: #ffffff;
-}
-
-.tab-button.active-tab {
-  background-color: #3182ce;
-  color: white;
-}
-
-.category-panel {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 2rem;
-}
-.category-tabs {
-  display: flex;
-  gap: 0.5rem;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
-  margin-bottom: 2rem;
-  scroll-snap-type: x mandatory;
-}
-
-.tab-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  background-color: #edf2f7;
-  color: #2d3748;
-  border-radius: 0.375rem;
-  font-weight: 500;
-  scroll-snap-align: start;
-  transition: background-color 0.3s;
-  max-width: 200px;  /* Set a maximum width for the tile */
-  height: 50px; /* Set height for the tile */
-  overflow: hidden; /* Hide any overflow */
-  position: relative;
-}
-
-.tab-icon {
-  width: 24px;  /* Set width of the image */
-  height: 24px; /* Set height of the image */
-  object-fit: contain; /* Ensure the image fits inside the container */
-}
-
-.tab-button:hover {
-  background-color: #e2e8f0;
-}
-
-.tab-button.active-tab {
-  background-color: #3182ce;
-  color: white;
-}
-
-
-@media (min-width: 640px) {
-  .category-panel {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    scroll-snap-type: x mandatory;
+    justify-content: center;
   }
-}
 
-@media (min-width: 1024px) {
-  .category-panel {
-    grid-template-columns: repeat(3, 1fr);
+  .tab-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #edf2f7;
+    color: #2d3748;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    scroll-snap-align: start;
+    transition: background-color 0.3s;
+    max-width: 200px;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
   }
-}
 
+  .tab-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .tab-button:hover {
+    background-color: #e2e8f0;
+  }
+
+  .tab-button.active-tab {
+    background-color: #3182ce;
+    color: white;
+  }
 </style>
 
-<script type="text/javascript">
-  function showCategory(slug) {
-    const panels = document.querySelectorAll('.category-panel');
-    const tabs = document.querySelectorAll('.tab-button');
-
-    panels.forEach(panel => {
-      panel.style.display = panel.id === `panel-${slug}` ? 'grid' : 'none';
-    });
-
-    tabs.forEach(tab => {
-      const isActive = tab.getAttribute('onclick')?.includes(slug);
-      tab.classList.toggle('active-tab', isActive);
-      if (isActive) {
-        tab.scrollIntoView({
-          behavior: 'smooth',
-          inline: 'center',
-          block: 'nearest' // ← prevents vertical scroll
-        });
+<script>
+  // Handle initial category and page selection on load
+  document.addEventListener('DOMContentLoaded', () => {
+    // Get the current category from URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category') || 'all';
+    
+    // Highlight the active tab
+    const tabButtons = document.querySelectorAll('.tab-button');
+    tabButtons.forEach(tab => {
+      const href = tab.getAttribute('href') || '';
+      if ((category === 'all' && !href.includes('category=')) || 
+          (href.includes(`category=${category}`))) {
+        tab.classList.add('active-tab');
+      } else {
+        tab.classList.remove('active-tab');
       }
     });
+  });
 
-
-    // Update URL hash
-    history.replaceState(null, '', `#${slug}`);
-  }
-
-  window.addEventListener('DOMContentLoaded', () => {
-    const hash = decodeURIComponent(location.hash.replace('#', ''));
-    const validPanel = document.getElementById(`panel-${hash}`);
-    if (validPanel) {
-      showCategory(hash);
-    } else {
-      showCategory('all');
-    }
+  // Handle browser back/forward navigation
+  window.addEventListener('popstate', () => {
+    location.reload();
   });
 </script>
-
-

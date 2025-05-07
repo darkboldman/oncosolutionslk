@@ -1181,6 +1181,7 @@
   {
     "id": "Light sensors | Day light sensors - ELKO",
     "category": "Sensors",
+    "catImage": "/images/category/elko-twilight-sensor.jpg",
     "name": "Light sensors | Day light sensors",
     "shortDescription": "Automatically switch street lights, garden lights, shop windows, and displays based on ambient light levels. The SKS-100 uses an external sensor to monitor brightness and activates lighting according to your set threshold — simple, efficient, and reliable.",
     "description": ["Automatic light control based on ambient brightness", "Ideal for outdoor and commercial applications", "Easy setting of switching levels directly on the device", "Energy-saving and weather-resistant design", "Control input for additional control", "Adjustable time delay to eliminate short term fluctuation in illumination", "Surface or DIN rail mount"],
@@ -1219,6 +1220,7 @@
   {
     "id": "Light sensors | Day light sensors - Merrytek",
     "category": "Sensors",
+    "catImage": "/images/category/elko-twilight-sensor.jpg",
     "name": "Light sensors | Day light sensors",
     "shortDescription": "Automatically switch street lights, garden lights, shop windows, and displays based on ambient light levels. The SKS-100 uses an external sensor to monitor brightness and activates lighting according to your set threshold — simple, efficient, and reliable.",
     "description": ["Automatic light control based on ambient brightness", "Ideal for outdoor and commercial applications", "Easy setting of switching levels directly on the device", "Energy-saving and weather-resistant design", "Control input for additional control", "Adjustable time delay to eliminate short term fluctuation in illumination", "Surface or DIN rail mount"],
@@ -1258,6 +1260,7 @@
   {
     "id": "PIR Motion Wardrobe Sensor - Merrytek",
     "category": "Sensors",
+    "catImage": "/images/category/elko-twilight-sensor.jpg",
     "name": "PIR Motion Wardrobe Sensor - Merrytek",
     "shortDescription": "Open your wardrobe — lights turn on automatically Close it — lights turn off. Save energy and enjoy effortless, motion-activated lighting with our compact PIR sensor. Easy to install. Smart. Efficient.",
     "description": ["Motion-Activated: Lights turn on automatically when you open your wardrobe.", "Energy Efficient: Lights switch off after a set time without movement.", "Easy Installation: Compact and discreet design fits neatly inside wardrobes, cabinets, and closets.", "Smart Sensitivity: Advanced PIR technology ensures accurate motion detection with minimal false triggers.", "Customizable Timing: Set delay times according to your preference."],
@@ -1295,6 +1298,7 @@
   {
     "id": "PIR Proximity Wardrobe Sensor - Merrytek",
     "category": "Sensors",
+    "catImage": "/images/category/elko-twilight-sensor.jpg",
     "name": "PIR Proximity Wardrobe Sensor - Merrytek",
     "shortDescription": "Discover a smarter way to light your wardrobes, cabinets, and closets with the Merrytek PIR Proximity Wardrobe Sensor. Designed with precision and convenience in mind, this sensor offers effortless, hands-free illumination the moment you reach for your belongings — and powers down automatically to save energy when no longer needed.",
     "description": ["Motion-Activated: Lights turn on automatically when you open your wardrobe.", "Energy Efficient: Lights switch off after a set time without movement.", "Easy Installation: Compact and discreet design fits neatly inside wardrobes, cabinets, and closets.", "Smart Sensitivity: Advanced PIR technology ensures accurate motion detection with minimal false triggers.", "Customizable Timing: Set delay times according to your preference."],
@@ -1305,12 +1309,11 @@
       "/images/products/merrytek-proximity-pir-cupboard-sensor.png"
     ],
     "specifications": {
-      "Detection": "Motion",
+      "Detection": "Proximity",
       "Brand": "Merrytek",
       "Function": "On - Off Control",
-      "Sensing Distance": "100 cm",
-      "Installation": "Surface",
-      "Dimension": "50x36x23 mm",
+      "Sensing Distance": "3cm -8cm",
+      "Installation": "Recessed",
       "Waterproof Rating": "IP20",
       "Material": "Plastic"
     },
@@ -1330,16 +1333,17 @@
     ]
   },
   {
-    "id": "flexible-led-strip",
-    "category": "LED Aluminium",
-    "name": "Flexible LED Strip Light (Warm White)",
+    "id": "MEANWELL® LRS power supplies - 150-24",
+    "category": "Power Supplies",
+    "catImage": "/images/category/lrs-150-24-600.jpg",
+    "name": "MEANWELL® LRS power supplies - 150-24",
     "shortDescription": "Versatile and easy to install lighting for various applications.",
     "description": "This 5-meter flexible LED strip light provides a warm white glow, perfect for creating ambient lighting, under-cabinet lighting, cove lighting, or highlighting architectural features. It features high-quality LEDs, a strong adhesive backing for simple installation, and can be cut at marked intervals to fit your specific needs. Low power consumption and a long lifespan make it an energy-efficient choice.",
     "price": 19.99,
     "featured": "yes",
     "stockStatus": "In stock",
     "images": [
-      "/images/products/philips-proglow-led-cove-light.jpg",
+      "/images/products/lrs-150-24-600.jpg",
       "/images/products/flexible-led-strip-2.jpg",
       "/images/products/flexible-led-strip-3.jpg"
     ],

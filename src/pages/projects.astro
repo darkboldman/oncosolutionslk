@@ -4,6 +4,12 @@ import LazyLoad from '../components/LazyLoad.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import projects from '../data/projects.json';
 
+// Helper function to safely get search params with type safety
+function getQueryParam(param: string, defaultValue: string = ''): string {
+  const value = Astro.url.searchParams.get(param);
+  return value !== null ? value : defaultValue;
+}
+
 // Sort projects - featured projects first, then by year (newest first)
 const sortedProjects = [...projects].sort((a, b) => {
   // First sort by featured status
@@ -13,23 +19,40 @@ const sortedProjects = [...projects].sort((a, b) => {
   // Then sort by year (descending)
   return b.year - a.year;
 });
+
+// Set up pagination
+const projectsPerPage = 12;
+const currentPage = parseInt(getQueryParam('page', '1'));
+const totalProjects = sortedProjects.length;
+const totalPages = Math.ceil(totalProjects / projectsPerPage);
+
+// Calculate the start and end indices for the current page
+const startIndex = (currentPage - 1) * projectsPerPage;
+const endIndex = Math.min(startIndex + projectsPerPage, totalProjects);
+
+// Get projects for the current page
+const projectsForCurrentPage = sortedProjects.slice(startIndex, endIndex);
+
+// Generate pagination link
+function generatePaginationLink(pageNumber: number): string {
+  return pageNumber === 1 ? '/projects' : `/projects?page=${pageNumber}`;
+}
 ---
 
 <Layout title="Our Projects">
   <div class="container">
     <div class="section-header">
-      <div class="section-header">
-        <h3 class="section-title">What we have done</h3>
-        <h2 class="section-heading">LEARN MORE ABOUT OUR <span>PROJECTS</span></h2>
-        <p class="section-subtitle">Discover how Onco Solutions transforms commercial spaces with intelligent lighting automation & LED lighting — delivering excellence across Sri Lanka and beyond.</p>
-      </div>
+      <h3 class="section-title">What we have done</h3>
+      <h2 class="section-heading">LEARN MORE ABOUT OUR <span>PROJECTS</span></h2>
+      <p class="section-subtitle">Discover how Onco Solutions transforms commercial spaces with intelligent lighting automation & LED lighting — delivering excellence across Sri Lanka and beyond.</p>
     </div>
     
     <div class="projects-grid">
-      {sortedProjects.map(project => (
-        <LazyLoad>
+      {projectsForCurrentPage.length > 0 ? (
+        projectsForCurrentPage.map(project => (
+          <LazyLoad>
             <div class="project-item">
-            <ProjectCard 
+              <ProjectCard 
                 name={project.name}
                 featured={project.featured}
                 year={project.year}
@@ -39,11 +62,44 @@ const sortedProjects = [...projects].sort((a, b) => {
                 location={project.location}
                 imageUrl={project.imageUrl}
                 slug={project.slug}
-            />
+              />
             </div>
-        </LazyLoad>
-      ))}
+          </LazyLoad>
+        ))
+      ) : (
+        <div class="no-projects">
+          <p>No projects found.</p>
+        </div>
+      )}
     </div>
+
+    {/* Pagination - Only show if there are multiple pages */}
+    {totalPages > 1 && (
+      <div class="pagination">
+        {currentPage > 1 && (
+          <a href={generatePaginationLink(currentPage - 1)} class="pagination-link prev">
+            &larr; Previous
+          </a>
+        )}
+        
+        <div class="pagination-numbers">
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map(pageNum => (
+            <a 
+              href={generatePaginationLink(pageNum)} 
+              class={`pagination-number ${pageNum === currentPage ? 'active' : ''}`}
+            >
+              {pageNum}
+            </a>
+          ))}
+        </div>
+        
+        {currentPage < totalPages && (
+          <a href={generatePaginationLink(currentPage + 1)} class="pagination-link next">
+            Next &rarr;
+          </a>
+        )}
+      </div>
+    )}
   </div>
 </Layout>
 
@@ -54,18 +110,28 @@ const sortedProjects = [...projects].sort((a, b) => {
     padding: 0 1rem;
   }
 
-  .projects-header {
+  .section-header {
     text-align: center;
     margin: 3rem 0;
   }
 
-  .projects-header h1 {
+  .section-title {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-heading {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     color: #333;
   }
 
-  .projects-header p {
+  .section-heading span {
+    color: #3182ce;
+  }
+
+  .section-subtitle {
     font-size: 1.1rem;
     color: #666;
     max-width: 700px;
@@ -76,13 +142,78 @@ const sortedProjects = [...projects].sort((a, b) => {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
+    min-height: 300px; /* Ensure grid has minimum height even when empty */
+  }
+
+  .no-projects {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 0;
+    color: #718096;
+    font-size: 1.25rem;
+  }
+
+  /* Pagination styles */
+  .pagination {
+    margin: 3rem 0 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .pagination-link {
+    display: inline-flex;
+    padding: 0.5rem 1rem;
+    background-color: #e2e8f0;
+    color: #4a5568;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+
+  .pagination-link:hover {
+    background-color: #cbd5e0;
+  }
+
+  .pagination-numbers {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .pagination-number {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #e2e8f0;
+    color: #4a5568;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .pagination-number:hover {
+    background-color: #cbd5e0;
+  }
+
+  .pagination-number.active {
+    background-color: #3182ce;
+    color: white;
   }
 
   /* Responsive design */
   @media (max-width: 1024px) {
     .projects-grid {
       grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .section-heading {
+      font-size: 2.2rem;
     }
   }
 
@@ -91,8 +222,25 @@ const sortedProjects = [...projects].sort((a, b) => {
       grid-template-columns: 1fr;
     }
     
-    .projects-header h1 {
-      font-size: 2rem;
+    .section-heading {
+      font-size: 1.8rem;
+    }
+    
+    .pagination-numbers {
+      gap: 0.25rem;
+    }
+    
+    .pagination-number {
+      width: 2rem;
+      height: 2rem;
+      font-size: 0.875rem;
     }
   }
 </style>
+
+<script>
+  // Handle browser back/forward navigation
+  window.addEventListener('popstate', () => {
+    location.reload();
+  });
+</script>

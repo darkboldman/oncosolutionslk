@@ -3,7 +3,7 @@
 import Layout from '../layouts/Layout.astro';
 import ProductCard from '../components/ProductCard.astro';
 import productsData from '../data/products.json'; 
-import CategoryGrid from '../components/CategoryGrid.astro';
+import ProductsCategories from '../components/ProductsCategories.astro';
 // Filter for featured products
 
 interface Product {
@@ -76,7 +76,7 @@ const featuredProducts = products.filter((product:Product) => product.featured =
     </div>
   </section>
 
- 
+  <ProductsCategories />
 
   <!-- Services Section -->
   <section class="services-container">
@@ -96,7 +96,7 @@ const featuredProducts = products.filter((product:Product) => product.featured =
             </span>
           </div>
           <h3 class="service-title">Consultation</h3>
-          <p class="service-description">Our team provides expert consultations in electrical installations, smart home automation, and LED lighting design. With over 20 years of industry experience, we deliver tailored solutions that meet your project requirements with precision and efficiency.</p>
+          <!-- <p class="service-description">Our team provides expert consultations in electrical installations, smart home automation, and LED lighting design. With over 20 years of industry experience, we deliver tailored solutions that meet your project requirements with precision and efficiency.</p> -->
           <a href="/services" class="service-link">
             Learn more
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -117,7 +117,7 @@ const featuredProducts = products.filter((product:Product) => product.featured =
             </span>
           </div>
           <h3 class="service-title">Project Management</h3>
-          <p class="service-description">We provide end-to-end project management, overseeing every stage from planning to execution with precision. Our commitment ensures your projects are delivered on time, within budget, and with exceptional results that exceed expectations.</p>
+          <!-- <p class="service-description">We provide end-to-end project management, overseeing every stage from planning to execution with precision. Our commitment ensures your projects are delivered on time, within budget, and with exceptional results that exceed expectations.</p> -->
           <a href="/services" class="service-link">
             Learn more
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -137,9 +137,8 @@ const featuredProducts = products.filter((product:Product) => product.featured =
             </span>
           </div>
           <h3 class="service-title">Design</h3>
-          <p class="service-description"> We design smart systems for residential, hospitality, and commercial spaces that enhance comfort, improve energy efficiency, and create the perfect ambiance—seamlessly integrating with your electrical infrastructure for intuitive control and lasting performance.
-
-          </p>
+          <!-- <p class="service-description"> We design smart systems for residential, hospitality, and commercial spaces that enhance comfort, improve energy efficiency, and create the perfect ambiance—seamlessly integrating with your electrical infrastructure for intuitive control and lasting performance.
+          </p> -->
           <a href="/services" class="service-link">
             Learn more
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -159,7 +158,7 @@ const featuredProducts = products.filter((product:Product) => product.featured =
             </span>
           </div>
           <h3 class="service-title">Installation</h3>
-          <p class="service-description">Our certified and experienced team delivers professional installation of electrical systems, lighting automation, and fixtures — ensuring flawless performance, uncompromising safety, and exceptional quality on every project.</p>
+          <!-- <p class="service-description">Our certified and experienced team delivers professional installation of electrical systems, lighting automation, and fixtures — ensuring flawless performance, uncompromising safety, and exceptional quality on every project.</p> -->
           <a href="/services" class="service-link">
             Learn more
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -179,7 +178,7 @@ const featuredProducts = products.filter((product:Product) => product.featured =
             </span>
           </div>
           <h3 class="service-title">Supply</h3>
-          <p class="service-description">We provide a comprehensive range of high-quality cutting-edge lighting automation systems and energy-efficient LED fixtures to premium sound solutions and essential electrical components — we supply trusted brands and reliable technologies to ensure your project’s success.</p>
+          <!-- <p class="service-description">We provide a comprehensive range of high-quality cutting-edge lighting automation systems and energy-efficient LED fixtures to premium sound solutions and essential electrical components — we supply trusted brands and reliable technologies to ensure your project’s success.</p> -->
           <a href="/services" class="service-link">
             Learn more
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -199,7 +198,7 @@ const featuredProducts = products.filter((product:Product) => product.featured =
             </span>
           </div>
           <h3 class="service-title">Maintenance</h3>
-          <p class="service-description">Our ongoing maintenance services are designed to keep your electrical systems operating at their best, ensuring safety, efficiency, and long-term reliability. We’re here to provide the expert support you can count on.</p>
+          <!-- <p class="service-description">Our ongoing maintenance services are designed to keep your electrical systems operating at their best, ensuring safety, efficiency, and long-term reliability. We’re here to provide the expert support you can count on.</p> -->
           <a href="/services" class="service-link">
             Learn more
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -209,106 +208,6 @@ const featuredProducts = products.filter((product:Product) => product.featured =
           </a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Products Section -->
-  <section class="products">
-    <div class="container">
-      <!-- <h2 class="section-title">Featured Products</h2> -->
-      <div class="products-header">
-        <h3 class="products-title">What we sell</h3>
-        <h2 class="products-heading">DISCOVER MORE ABOUT OUR <span>PRODUCTS</span></h2>
-        <p class="products-subtitle">Not sure what you need? Start here! Dive into our collection and discover the product that fits your needs perfectly.</p>
-      </div>
-      <div class="products-grid">
-        {featuredProducts.map(product => (
-          <ProductCard product={product as Product} />
-        ))}
-      </div>
-      <div class="product-button-container">
-        <a href="/products" class="btn btn-primary product-page-btn">View All Products</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Brand Partners Section -->
-  <section class="partners">
-    <div class="container">
-      <div class="partners-content">
-        <!-- Left text content -->
-        <div class="partners-text">
-          <h2 class="partner-title">who we work with</h2>
-          <h2 class="partner-heading">INDUSTRY LEADING <span>BRANDS</span></h2>
-          <p class="partner-description">
-            At Onco Solutions, we don't just deliver cutting-edge smart lighting and automation — we do it alongside the best in the industry. By collaborating with world-renowned brands, we ensure every solution we provide is built on quality, innovation, and lasting reliability.
-          </p>
-          <!-- <a href="/partners" class="read-more-btn">Read More</a> -->
-        </div>
-  
-        <!-- Right logos grid -->
-        <div class="logos-grid">
-          <div class="logo-item"><img src="/public/images/brands/clipsal-300-150.png" alt="Clipsal logo"></div>
-          <div class="logo-item"><img src="/public/images/brands/dalux-lighting-300-150.png" alt="Dalux Lighting logo"></div>
-          <div class="logo-item"><img src="/public/images/brands/intelight-300-150.png" alt="Intelight logo"></div>
-          <div class="logo-item"><img src="/public/images/brands/madrix-300-150.png" alt="Madrix logo"></div>
-          <div class="logo-item"><img src="/public/images/brands/meanwell-300-150.png" alt="Meanwell logo"></div>
-          <div class="logo-item"><img src="/public/images/brands/philips-300-150.png" alt="Philips logo"></div>
-          <div class="logo-item"><img src="/public/images/brands/dynalite-300-150.png" alt="Dynalite logo"></div>
-          <div class="logo-item"><img src="/public/images/brands/schneider-300-150.png" alt="Schneider logo"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-
-  <!-- Markets Section -->
-  <section class="markets">
-    <div class="container">
-      <h2 class="section-title">Industries We Serve</h2>
-      <div class="markets-grid">
-        <div class="market-item">
-          <h3>Hospitality</h3>
-          <p>Hotels, restaurants, banquets and entertainment venues</p>
-        </div>
-        <div class="market-item">
-          <h3>Residential</h3>
-          <p>Luxury homes, apartments, and housing developments</p>
-        </div>
-        <div class="market-item">
-          <h3>Commercial</h3>
-          <p>Offices, shops, supermarkets, malls, and retail spaces</p>
-        </div>
-        <div class="market-item">
-          <h3>Industrial</h3>
-          <p>Factories, warehouses, assembly lines and production facilities</p>
-        </div>
-        <div class="market-item">
-          <h3>Institutional</h3>
-          <p>Schools, hospitals, universities and government buildings</p>
-        </div>
-        <div class="market-item">
-          <h3>Corporate</h3>
-          <p>Boardrooms, conference centers, meeting rooms and auditoriums</p>
-        </div>
-        <div class="market-item">
-          <h3>Religious</h3>
-          <p>Temples, mosques, churches and other religious structures</p>
-        </div>
-        <div class="market-item">
-          <!-- <h3></h3>
-          <p>Boardrooms, conference centers, and auditoriums</p> -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta">
-    <div class="container">
-      <h2>Ready to transform your space with innovative lighting?</h2>
-      <p>Our expert team is ready to design a custom solution for your specific needs.</p>
-      <a href="/contact" class="btn btn-primary">Request a Consultation</a>
     </div>
   </section>
 
@@ -359,6 +258,104 @@ const featuredProducts = products.filter((product:Product) => product.featured =
           </div>
           <h3>Reliable Support</h3>
           <p>We stand by our work with dependable after-sales service and ongoing technical support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Partners Section -->
+  <section class="partners">
+    <div class="container">
+      <div class="partners-content">
+        <!-- Left text content -->
+        <div class="partners-text">
+          <h2 class="partner-title">who we work with</h2>
+          <h2 class="partner-heading">INDUSTRY LEADING <span>BRANDS</span></h2>
+          <p class="partner-description">
+            At Onco Solutions, we don't just deliver cutting-edge smart lighting and automation — we do it alongside the best in the industry. By collaborating with world-renowned brands, we ensure every solution we provide is built on quality, innovation, and lasting reliability.
+          </p>
+          <!-- <a href="/partners" class="read-more-btn">Read More</a> -->
+        </div>
+  
+        <!-- Right logos grid -->
+        <div class="logos-grid">
+          <div class="logo-item"><img src="/public/images/brands/clipsal-300-150.png" alt="Clipsal logo"></div>
+          <div class="logo-item"><img src="/public/images/brands/dalux-lighting-300-150.png" alt="Dalux Lighting logo"></div>
+          <div class="logo-item"><img src="/public/images/brands/intelight-300-150.png" alt="Intelight logo"></div>
+          <div class="logo-item"><img src="/public/images/brands/madrix-300-150.png" alt="Madrix logo"></div>
+          <div class="logo-item"><img src="/public/images/brands/meanwell-300-150.png" alt="Meanwell logo"></div>
+          <div class="logo-item"><img src="/public/images/brands/philips-300-150.png" alt="Philips logo"></div>
+          <div class="logo-item"><img src="/public/images/brands/dynalite-300-150.png" alt="Dynalite logo"></div>
+          <div class="logo-item"><img src="/public/images/brands/schneider-300-150.png" alt="Schneider logo"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Products Section -->
+  <section class="products">
+    <div class="container">
+      <!-- <h2 class="section-title">Featured Products</h2> -->
+      <div class="products-header">
+        <h3 class="products-title">What we sell</h3>
+        <h2 class="products-heading">DISCOVER MORE ABOUT OUR <span>PRODUCTS</span></h2>
+        <p class="products-subtitle">Not sure what you need? Start here! Dive into our collection and discover the product that fits your needs perfectly.</p>
+      </div>
+      <div class="products-grid">
+        {featuredProducts.map(product => (
+          <ProductCard product={product as Product} />
+        ))}
+      </div>
+      <div class="product-button-container">
+        <a href="/products" class="btn btn-primary product-page-btn">View All Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="container">
+      <h2>Ready to transform your space with innovative lighting?</h2>
+      <p>Our expert team is ready to design a custom solution for your specific needs.</p>
+      <a href="/contact" class="btn btn-primary">Request a Consultation</a>
+    </div>
+  </section>
+
+  <!-- Markets Section -->
+  <section class="markets">
+    <div class="container">
+      <h2 class="section-title">Industries We Serve</h2>
+      <div class="markets-grid">
+        <div class="market-item">
+          <h3>Hospitality</h3>
+          <p>Hotels, restaurants, banquets and entertainment venues</p>
+        </div>
+        <div class="market-item">
+          <h3>Residential</h3>
+          <p>Luxury homes, apartments, and housing developments</p>
+        </div>
+        <div class="market-item">
+          <h3>Commercial</h3>
+          <p>Offices, shops, supermarkets, malls, and retail spaces</p>
+        </div>
+        <div class="market-item">
+          <h3>Industrial</h3>
+          <p>Factories, warehouses, assembly lines and production facilities</p>
+        </div>
+        <div class="market-item">
+          <h3>Institutional</h3>
+          <p>Schools, hospitals, universities and government buildings</p>
+        </div>
+        <div class="market-item">
+          <h3>Corporate</h3>
+          <p>Boardrooms, conference centers, meeting rooms and auditoriums</p>
+        </div>
+        <div class="market-item">
+          <h3>Religious</h3>
+          <p>Temples, mosques, churches and other religious structures</p>
+        </div>
+        <div class="market-item">
+          <!-- <h3></h3>
+          <p>Boardrooms, conference centers, and auditoriums</p> -->
         </div>
       </div>
     </div>
@@ -420,11 +417,7 @@ const featuredProducts = products.filter((product:Product) => product.featured =
       </div>
     </div>
   </section>
-  <div class="section">
-    <div class="container">
-      <h2 class="section-title">Search by Category</h2>
-      <CategoryGrid />
-  </div>
+  
 </Layout>
 
 <style>
@@ -630,7 +623,7 @@ const featuredProducts = products.filter((product:Product) => product.featured =
     }
     
     .services-subtitle {
-      max-width: 600px;
+      max-width: 800px;
       margin: 0 auto;
       color: #666;
     }
@@ -648,11 +641,11 @@ const featuredProducts = products.filter((product:Product) => product.featured =
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
       transition: all 0.3s ease;
       position: relative;
-      height: 360px;
+      height: 110px;
       display: flex;
       flex-direction: column;
       cursor: pointer;
-      padding: 20px 10px;
+      padding: 10px 10px;
     }
     
     .service-card:hover {
@@ -687,8 +680,8 @@ const featuredProducts = products.filter((product:Product) => product.featured =
     }
     
     .service-icon .material-symbols-outlined {
-      font-size: 50px;
-      margin-bottom: 10px;
+      font-size: 30px;
+      margin-bottom: 1px;
       color: #2d3047;
       transition: color 0.3s ease;
     }
@@ -700,7 +693,7 @@ const featuredProducts = products.filter((product:Product) => product.featured =
     .service-title {
       font-size: 20px;
       font-weight: 600;
-      margin-bottom: 5px;
+      margin-bottom: 1px;
       transition: color 0.3s ease;
     }
     
@@ -721,7 +714,7 @@ const featuredProducts = products.filter((product:Product) => product.featured =
     }
     
     .service-link {
-      font-size: 14px;
+      font-size: 0.6rem;
       font-weight: 600;
       color: rgba(85, 187, 250, 0.9);
       text-decoration: none;
@@ -738,7 +731,7 @@ const featuredProducts = products.filter((product:Product) => product.featured =
     }
     
     .service-link svg {
-      margin-left: 8px;
+      margin-left: 6px;
       transition: transform 0.3s ease;
     }
     

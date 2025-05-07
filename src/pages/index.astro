@@ -32,8 +32,8 @@ const featuredProducts = products.filter((product:Product) => product.featured =
         <!-- Slide 1 -->
         <div class="slide" style="background-image: url('/images/projects/ulagalla-resort.jpg');">
           <div class="content">
-            <h1>Awesome Bell Lamp</h1>
-            <p>High quality lighting solutions for every space, blending design and performance.</p>
+            <h1>Where Luxury Meets Light</h1>
+            <p>Experience the perfect harmony of elegant design and smart lighting — crafted to elevate every moment at Uga Villas.</p>
             <button>Shop Now</button>
           </div>
           <!-- <img src="/images/projects/ulagalla-resort.jpg" alt="Bell Lamp"> -->
@@ -42,8 +42,8 @@ const featuredProducts = products.filter((product:Product) => product.featured =
         <!-- Slide 2 -->
         <div class="slide" style="background-image: url('/images/projects/cinnamon-dhonveli.jpg');">
           <div class="content">
-            <h1>Elegant Office Lighting</h1>
-            <p>Customizable LED systems perfect for corporate and modern office environments.</p>
+            <h1>Seamless Light, Effortless Ambience</h1>
+            <p>Smart automation transforms every corridor into an inviting journey — perfectly timed, intuitively illuminated.</p>
             <button>Discover</button>
           </div>
           <!-- <img src="/images/projects/cinnamon-dhonveli.jpg" alt="Office Lighting"> -->
@@ -52,8 +52,8 @@ const featuredProducts = products.filter((product:Product) => product.featured =
         <!-- Slide 3 -->
         <div class="slide" style="background-image: url('/images/projects/silver-ray.jpg');">
           <div class="content">
-            <h1>Hospitality Lighting</h1>
-            <p>Enhance guest experiences with sophisticated lighting tailored for hospitality spaces.</p>
+            <h1>Illuminate Your Grand Moments</h1>
+            <p>Sophisticated LED lighting, gracefully blending color and ambiance to create unforgettable celebrations.</p>
             <button>Learn More</button>
           </div>
           <!-- <img src="/images/projects/silver-ray.jpg" alt="Hospitality Lighting"> -->
@@ -62,8 +62,8 @@ const featuredProducts = products.filter((product:Product) => product.featured =
         <!-- Slide 4 -->
         <div class="slide" style="background-image: url('/images/projects/royal-institute-colombo.jpg');">
           <div class="content">
-            <h1>Residential Ambience</h1>
-            <p>Premium lighting solutions bringing warmth and elegance to your home.</p>
+            <h1>Lighting the Stage for Greatness</h1>
+            <p>Immersive lighting and intelligent automation that set the perfect scene for unforgettable performances.</p>
             <button>Explore</button>
           </div>
           <!-- <img src="/images/projects/royal-institute-colombo.jpg" alt="Residential Lighting"> -->
@@ -323,7 +323,11 @@ const featuredProducts = products.filter((product:Product) => product.featured =
   <!-- Markets Section -->
   <section class="markets">
     <div class="container">
-      <h2 class="section-title">Industries We Serve</h2>
+      <div class="services-header">
+        <h3 class="services-title">Who Do We Serve</h3>
+        <h2 class="services-heading">LEARN MORE ABOUT OUR <span>SECTORS</span></h2>
+        <p class="services-subtitle">Explore how Onco delivers customized electrical and lighting solutions — from premium components to complete project installations, with a focus on quality, innovation, and design.</p>
+      </div>
       <div class="markets-grid">
         <div class="market-item">
           <h3>Hospitality</h3>
@@ -364,7 +368,12 @@ const featuredProducts = products.filter((product:Product) => product.featured =
   <!-- Our Clients Section -->
   <section class="clients">
     <div class="container">
-      <h2 class="section-title">Our Clients</h2>
+      <!-- <h2 class="section-title">Our Clients</h2> -->
+      <div class="services-header">
+        <h3 class="services-title">Who Do We Work With</h3>
+        <h2 class="services-heading">LEARN MORE ABOUT OUR <span>CLIENTS</span></h2>
+        <p class="services-subtitle">Our clients trust us to create energy-efficient, beautifully lit environments tailored to their needs. Proud to be the choice of forward-thinking organizations across Sri Lanka and beyond.</p>
+      </div>
       <div class="client-logos">
         <div class="client-logo">
           <img src="/public/images/clients/jetwing-colombo-7.jpg" alt="logo of Jetwing hotels colombo">
@@ -1047,8 +1056,6 @@ const featuredProducts = products.filter((product:Product) => product.featured =
   .client-logo {
     width: 120px;
     height: 80px;
-    /* width: 180px;
-    height: 100px; */
     display: flex;
     align-items: center;
     justify-content: center;

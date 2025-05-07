@@ -25,9 +25,14 @@ if (!project) {
 
 <Layout title={`${project.name} | Our Project`}>
   <div class="container">
-    <div class="back-link">
+    <!-- <div class="back-link">
         <a href="/projects">← Back to All Projects</a>
-      </div>
+    </div> -->
+    <div class="back-link-container">
+      <a href="#" class="back-to-projects back-link">
+        &larr; Back to Projects
+      </a>
+    </div>
     <div class="project-detail">
       <div class="project-detail-header">
         <h1>{project.name}</h1>
@@ -63,8 +68,13 @@ if (!project) {
         <p>{project.description}</p>
       </div>
 
-      <div class="back-link">
+      <!-- <div class="back-link">
         <a href="/projects">← Back to All Projects</a>
+      </div> -->
+      <div class="back-link-container">
+        <a href="#" class="back-to-projects back-link">
+          &larr; Back to Projects
+        </a>
       </div>
     </div>
   </div>
@@ -179,3 +189,24 @@ if (!project) {
     }
   }
 </style>
+<script>
+  // Handle the back to projects link with the stored page number
+  document.addEventListener('DOMContentLoaded', () => {
+    const backLinks = document.querySelectorAll('.back-to-projects');
+    
+    backLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Get the last visited page from localStorage
+        const lastPage = localStorage.getItem('lastProjectsPage') || '1';
+        
+        // Generate the correct URL
+        const projectsUrl = lastPage === '1' ? '/projects' : `/projects?page=${lastPage}`;
+        
+        // Navigate back to the projects page
+        window.location.href = projectsUrl;
+      });
+    });
+  });
+</script>

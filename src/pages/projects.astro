@@ -243,4 +243,22 @@ function generatePaginationLink(pageNumber: number): string {
   window.addEventListener('popstate', () => {
     location.reload();
   });
+
+  // Store current page in localStorage when clicking on a project
+  document.addEventListener('DOMContentLoaded', () => {
+    // Get current page number from URL or default to 1
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentPage = urlParams.get('page') || '1';
+    
+    // Store the current page in localStorage
+    localStorage.setItem('lastProjectsPage', currentPage);
+    
+    // Add click event listeners to all project cards
+    const projectLinks = document.querySelectorAll('.project-item a');
+    projectLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        localStorage.setItem('lastProjectsPage', currentPage);
+      });
+    });
+  });
 </script>

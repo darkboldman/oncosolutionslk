@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import productsData from '../../data/products.json';
+import '../../styles/global.css';
 
 // Slugify function (convert to lowercase, remove non-alphanumerics, replace spaces with hyphens)
 function slugify(str: string): string {
@@ -92,8 +93,12 @@ function generatePaginationLink(pageNumber: number, category: string): string {
 <Layout title="Products | LED Lighting Solutions">
   <div class="products-container">
     <header class="products-header">
-      <h1>Our Products</h1>
-      <p>Browse our selection of high-quality LED lighting products</p>
+      <!-- <div class="products-header"> -->
+        <h3 class="products-title">What we Sell</h3>
+        <h2 class="products-heading">LEARN MORE ABOUT OUR <span>PRODUCTS</span></h2>
+        <p class="products-subtitle">Explore the range of products we stock — from advanced lighting systems to essential accessories.
+          We offer high-quality solutions to meet the demands of any project, big or small.</p>
+      <!-- </div> -->
     </header>
 
     <!-- Category Tabs -->
@@ -155,6 +160,27 @@ function generatePaginationLink(pageNumber: number, category: string): string {
 </Layout>
 
 <style>
+  :root {
+    --primary-color: rgba(41, 164, 240, 0.9);
+    --primary-hover: #0056b3;
+    --dark-blue:#01245c;
+    --accent-color: #4caf50;
+    --secondary-color: #6c757d;
+    --light-bg: #f8f9fa;
+    --dark-bg: #212529;
+    --text-color: #1d2951;
+    --text-light: #f8f9fa;
+    --green-color:#03be03;
+    --gold-color: #f0c04d;
+    --orange-color:#ffa621;
+    --light-gray: #f5f5f5;
+    --medium-gray: #ddd;
+    --dark-gray: #666;
+    --border-radius: 5px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --header-height: 80px;
+  }
   .products-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -165,17 +191,30 @@ function generatePaginationLink(pageNumber: number, category: string): string {
     text-align: center;
     margin-bottom: 3rem;
   }
-
-  .products-header h1 {
-    font-size: 2.5rem;
-    color: #2d3748;
-    margin-bottom: 0.5rem;
-  }
-
-  .products-header p {
-    font-size: 1.25rem;
-    color: #4a5568;
-  }
+  .products-title {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #777;
+      margin-bottom: 15px;
+    }
+    
+    .products-heading {
+      font-size: 42px;
+      font-weight: 700;
+      color: #2d3047;
+      margin-bottom: 20px;
+    }
+    
+    .products-heading span {
+      color: var(--primary-color);
+    }
+    
+    .products-subtitle {
+      max-width: 800px;
+      margin: 0 auto;
+      color: #666;
+    }
 
   .products-grid {
     display: grid;
@@ -251,7 +290,7 @@ function generatePaginationLink(pageNumber: number, category: string): string {
   }
 
   .pagination-number.active {
-    background-color: #3182ce;
+    background-color: var(--primary-color);
     color: white;
   }
 
@@ -298,7 +337,7 @@ function generatePaginationLink(pageNumber: number, category: string): string {
   }
 
   .tab-button.active-tab {
-    background-color: #3182ce;
+    background-color: var(--primary-color);
     color: white;
   }
 </style>

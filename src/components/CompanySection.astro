@@ -1,0 +1,230 @@
+---
+// src/components/CompanySection.astro
+// You can customize these props as needed for your specific use case
+interface Props {
+  title?: string;
+  subtitle?: string;
+  introTitle?: string;
+  introText1?: string;
+  introText2?: string;
+  introText3?: string;
+  introText4?: string;
+  features?: {
+    number: string;
+    title: string;
+    description: string;
+  }[];
+}
+
+const {
+  title = "WELCOME TO OUR COMPANY",
+  subtitle = "Quisque porttitor sem libero auctor lorem fringilla sit amet hasellus gravida nisl etiam egestas.",
+  introTitle = "OUR STRENGTHS & EXPERTISE",
+  introText1 = "At Onco Solutions, we are proud to be one of Sri Lanka’s leading specialists in LED lighting and lighting automation. With over 15 years of proven experience, we deliver intelligent solutions tailored for the Hospitality industry, Banquet Halls, Function Centres, Board Rooms, Auditoriums, Showrooms, Offices, and Industrial Facilities.",
+  introText2 = "Our expertise spans across lighting automation systems from globally renowned brands, with factory-trained professionals certified in Schneider C-Bus, Philips Dynalite, DALI-Bus, and Madrix-DMX technologies.",
+  introText3 = "Beyond automation, we offer complete LED lighting fixture customisation to meet unique design and performance needs. Our electrical installation and turnkey project management services ensure smooth execution from concept to completion, delivering exceptional quality and value.",
+  introText4 = "We are proud to have successfully delivered landmark projects both in Sri Lanka and internationally, building a trusted reputation for excellence, reliability, and forward-thinking solutions.",
+  features = [
+    {
+      number: "01.",
+      title: "PHILIPS DYNALITE",
+      description: "As a trusted leader with over 35 years of experience, Philips Dynalite empowers smart buildings. Gain unparalleled control and efficiency with our proven, scalable solutions. We are trained & authorised by Signify."
+    },
+    {
+      number: "02.",
+      title: "SCHNIEDER C-BUS",
+      description: "A proven and scalable system, Schneider C-Bus offers reliable control for residential and commercial spaces. From lighting to HVAC and security, integrate and manage your building with intelligence. We are trained & authorised by Schnieder."
+    },
+    {
+      number: "03.",
+      title: "LED LIGHTING & PROFILES",
+      description: "We offer premium LED lighting solutions including RGB lighting, linear and round aluminium profiles, Moonlight LED systems, and custom LED fixtures — combining innovation, design, and performance for any space."
+    },
+    {
+      number: "04.",
+      title: "STAGE LIGHTING & SOUND",
+      description: "We offer professional stage lighting and sound solutions, including intelligent lighting systems, audio equipment, custom setups, and control systems — delivering innovation, precision, and impact."
+    },
+    {
+      number: "05.",
+      title: "MADRIX DMX",
+      description: "We offer MADRIX DMX solutions for dynamic lighting control, pixel mapping, and show design — trained by Madrix for combining powerful software and hardware to create stunning visual experiences."
+    },
+    {
+      number: "06.",
+      title: "COMPONENTS STOCKIST",
+      description: "We stock a full range of accessories and components to support all our lighting, sound, and control systems — ensuring complete, seamless solutions for every project."
+    }
+  ]
+} = Astro.props;
+---
+
+<section class="company-section">
+  <div class="container">
+    <!-- <div class="header">
+      <h1>{title}</h1>
+      <p class="subtitle">{subtitle}</p>
+    </div> -->
+    
+    <div class="content">
+      <div class="intro">
+        <h2>{introTitle}</h2>
+        <p>{introText1}</p>
+        <p>{introText2}</p>
+        <p>{introText3}</p>
+        <p>{introText4}</p>
+        <!-- <button class="more-details" id="moreDetailsBtn">MORE DETAILS</button> -->
+      </div>
+      
+      <div class="features">
+        {features.map((feature) => (
+          <div class="feature">
+            <div class="feature-number">{feature.number}</div>
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .company-section {
+    background-color: var(--dark-blue);
+    color: white;
+    padding: 4rem 2rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .header h1 {
+    color: #f0c04d;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .subtitle {
+    color: #a0a5ad;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 0.9rem;
+  }
+  
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+  }
+  
+  .intro {
+    padding-right: 1rem;
+  }
+  
+  .intro h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+  
+  .intro p {
+    color: #a0a5ad;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .more-details {
+    background-color: transparent;
+    border: 1px solid #a0a5ad;
+    border-radius: 0.5rem;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .more-details:hover {
+    background-color: #f0c04d;
+    border-color: #f0c04d;
+    color: #1e2530;
+  }
+  
+  .features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  
+  .feature {
+    margin-bottom: 1rem;
+  }
+  
+  .feature-number {
+    color: #f0c04d;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .feature h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .feature p {
+    color: #a0a5ad;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 940px) {
+    .content {
+      grid-template-columns: 1fr;
+    }
+    
+    .intro {
+      padding-right: 0;
+      margin-bottom: 2rem;
+    }
+    
+    .features {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .company-section {
+      padding: 3rem 1rem;
+    }
+    
+    .header {
+      margin-bottom: 2rem;
+    }
+    
+    .header h1 {
+      font-size: 1.8rem;
+    }
+  }
+</style>
+
+<script>
+  document.getElementById('moreDetailsBtn')?.addEventListener('click', () => {
+    // You can add functionality here if needed
+    console.log('More details button clicked');
+  });
+</script>

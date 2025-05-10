@@ -1268,7 +1268,7 @@
     "featured": "no",
     "stockStatus": "In stock",
     "images": [
-      "/images/products/merrytek-proximity-pir-cupboard-sensor.png"
+      "/images/products/merrytek-motion-pir-cupboard-sensor.png"
     ],
     "specifications": {
       "Detection": "Motion",
@@ -1306,7 +1306,8 @@
     "featured": "no",
     "stockStatus": "In stock",
     "images": [
-      "/images/products/merrytek-proximity-pir-cupboard-sensor.png"
+      "/images/products/merrytek-ir-proximity-sensor.jpg",
+      "/images/products/merrytek-ir-proximity-sensor-control.jpg"
     ],
     "specifications": {
       "Detection": "Proximity",
@@ -1337,26 +1338,28 @@
     "category": "Power Supplies",
     "catImage": "/images/category/lrs-150-24-600.jpg",
     "name": "MEANWELL® LRS power supplies - 150-24",
-    "shortDescription": "Versatile and easy to install lighting for various applications.",
-    "description": "This 5-meter flexible LED strip light provides a warm white glow, perfect for creating ambient lighting, under-cabinet lighting, cove lighting, or highlighting architectural features. It features high-quality LEDs, a strong adhesive backing for simple installation, and can be cut at marked intervals to fit your specific needs. Low power consumption and a long lifespan make it an energy-efficient choice.",
+    "shortDescription": "The MEAN WELL LRS-150 series is a highly reliable and cost-effective single-output enclosed power supply. Designed for a wide range of industrial and automation applications, the LRS-150 offers excellent performance, high efficiency, and a compact design, making it an ideal choice for space-constrained installations. With various output voltage options and comprehensive protection features, the LRS-150 ensures stable and safe power delivery for your critical systems.",
+    "description": ["Ultra compact & 1U low profile for easy installation", "Very low no laod power consumption ~ ❮.75W", "300V AC input surge protection", "Most economical model | Non - PFC", "High Reliability | High Efficiency", "Cooling by Free Air Convection", "LED Power-On Indicator" ],
     "price": 19.99,
     "featured": "yes",
     "stockStatus": "In stock",
     "images": [
-      "/images/products/lrs-150-24-600.jpg",
-      "/images/products/flexible-led-strip-2.jpg",
-      "/images/products/flexible-led-strip-3.jpg"
+      "/images/products/lrs-150-24-600.jpg"
     ],
     "specifications": {
-      "Length": "5 meters",
-      "Color Temperature": "3000K (Warm White)",
-      "Voltage": "12V DC",
-      "Power Consumption": "9.6W/meter",
-      "LED Type": "SMD 2835",
-      "LED Density": "60 LEDs/meter",
-      "CRI": ">80",
+      "Brand": "Meanwell",
+      "AC Input Voltage": "230V AC",
+      "Rated Power": "150W (156W)",
+      "Voltage": "24V DC",
+      "Output": "6.5A",
+      "EMC Emission": "Compliance to EN55032 Class B, EN61000-3-2,-3",
+      "Overload Protection": "105% ~ 150% of rated output power",
+      "Overvoltage Protection": "115% ~ 135% of rated output voltage, shut down o/p",
+      "Short Circuit Protection": "Hiccup mode, recovers automatically after fault removal",
       "Waterproof Rating": "IP20 (Indoor Use)",
-      "Lifespan": "50,000 hours"
+      "Working Temperature": "-20 ~ +70°C (refer to derating curve)",
+      "Material": "Steel",
+      "Dimensions (L x W x H)": "159x97x30"
     },
     "documents": [
       {
@@ -1366,285 +1369,48 @@
       {
         "name": "Compliance Certificate",
         "file": "/documents/flexible-led-strip-compliance.pdf"
-      },
-      {
-        "name": "Test Report",
-        "file": "/documents/flexible-led-strip-test-report.pdf"
       }
+      
     ]
   },
   {
-    "id": "flexible-led-strip",
-    "category": "Philips Dynalite",
-    "name": "Flexible LED Strip Light (Warm White)",
-    "shortDescription": "Versatile and easy to install lighting for various applications.",
-    "description": "This 5-meter flexible LED strip light provides a warm white glow, perfect for creating ambient lighting, under-cabinet lighting, cove lighting, or highlighting architectural features. It features high-quality LEDs, a strong adhesive backing for simple installation, and can be cut at marked intervals to fit your specific needs. Low power consumption and a long lifespan make it an energy-efficient choice.",
+    "id": "MEANWELL® LRS power supplies - 350-24",
+    "category": "Power Supplies",
+    "catImage": "/images/category/lrs-350-24-600.jpg",
+    "name": "MEANWELL® LRS power supplies - 350-24",
+    "shortDescription": "The MEAN WELL LRS-350 series is a highly reliable and cost-effective single-output enclosed power supply. Designed for a wide range of industrial and automation applications, the LRS-350 offers excellent performance, high efficiency, and a compact design, making it an ideal choice for space-constrained installations. With various output voltage options and comprehensive protection features, the LRS-350 ensures stable and safe power delivery for your critical systems.",
+    "description": ["Ultra compact & 1U low profile for easy installation", "Very low no laod power consumption ~ ❮.75W", "300V AC input surge protection", "Most economical model | Non - PFC", "High Reliability | High Efficiency", "Cooling by Free Air Convection", "LED Power-On Indicator" ],
     "price": 19.99,
-    "featured": "yes",
-    "stockStatus": "In stock",
-    "images": [
-      "/images/products/PHILIPS-DYNALITE-BANNER.png",
-      "/images/products/flexible-led-strip-2.jpg",
-      "/images/products/flexible-led-strip-3.jpg"
-    ],
-    "specifications": {
-      "Length": "5 meters",
-      "Color Temperature": "3000K (Warm White)",
-      "Voltage": "12V DC",
-      "Power Consumption": "9.6W/meter",
-      "LED Type": "SMD 2835",
-      "LED Density": "60 LEDs/meter",
-      "CRI": ">80",
-      "Waterproof Rating": "IP20 (Indoor Use)",
-      "Lifespan": "50,000 hours"
-    },
-    "documents": [
-      {
-        "name": "Product Brochure",
-        "file": "/documents/flexible-led-strip-brochure.pdf"
-      },
-      {
-        "name": "Compliance Certificate",
-        "file": "/documents/flexible-led-strip-compliance.pdf"
-      },
-      {
-        "name": "Test Report",
-        "file": "/documents/flexible-led-strip-test-report.pdf"
-      }
-    ]
-  },
-  {
-    "id": "flexible-led-strip",
-    "category": "Emergency Lighting",
-    "name": "Flexible LED Strip Light (Warm White)",
-    "shortDescription": "Versatile and easy to install lighting for various applications.",
-    "description": "This 5-meter flexible LED strip light provides a warm white glow, perfect for creating ambient lighting, under-cabinet lighting, cove lighting, or highlighting architectural features. It features high-quality LEDs, a strong adhesive backing for simple installation, and can be cut at marked intervals to fit your specific needs. Low power consumption and a long lifespan make it an energy-efficient choice.",
-    "price": 19.99,
-    "featured": "yes",
-    "stockStatus": "In stock",
-    "images": [
-      "/images/products/INTELIGHT-SPREMA-EXIT-SIGN SRI lANKA.png",
-      "/images/products/flexible-led-strip-2.jpg",
-      "/images/products/flexible-led-strip-3.jpg"
-    ],
-    "specifications": {
-      "Length": "5 meters",
-      "Color Temperature": "3000K (Warm White)",
-      "Voltage": "12V DC",
-      "Power Consumption": "9.6W/meter",
-      "LED Type": "SMD 2835",
-      "LED Density": "60 LEDs/meter",
-      "CRI": ">80",
-      "Waterproof Rating": "IP20 (Indoor Use)",
-      "Lifespan": "50,000 hours"
-    },
-    "documents": [
-      {
-        "name": "Product Brochure",
-        "file": "/documents/flexible-led-strip-brochure.pdf"
-      },
-      {
-        "name": "Compliance Certificate",
-        "file": "/documents/flexible-led-strip-compliance.pdf"
-      },
-      {
-        "name": "Test Report",
-        "file": "/documents/flexible-led-strip-test-report.pdf"
-      }
-    ]
-  },
-  {
-    "id": "flexible-led-strip",
-    "category": "Emergency Lighting",
-    "name": "Flexible LED Strip Light (Warm White)",
-    "shortDescription": "Versatile and easy to install lighting for various applications.",
-    "description": "This 5-meter flexible LED strip light provides a warm white glow, perfect for creating ambient lighting, under-cabinet lighting, cove lighting, or highlighting architectural features. It features high-quality LEDs, a strong adhesive backing for simple installation, and can be cut at marked intervals to fit your specific needs. Low power consumption and a long lifespan make it an energy-efficient choice.",
-    "price": 19.99,
-    "featured": "yes",
-    "stockStatus": "In stock",
-    "images": [
-      "/images/products/flexible-led-strip-1.jpg",
-      "/images/products/flexible-led-strip-2.jpg",
-      "/images/products/flexible-led-strip-3.jpg"
-    ],
-    "specifications": {
-      "Length": "5 meters",
-      "Color Temperature": "3000K (Warm White)",
-      "Voltage": "12V DC",
-      "Power Consumption": "9.6W/meter",
-      "LED Type": "SMD 2835",
-      "LED Density": "60 LEDs/meter",
-      "CRI": ">80",
-      "Waterproof Rating": "IP20 (Indoor Use)",
-      "Lifespan": "50,000 hours"
-    },
-    "documents": [
-      {
-        "name": "Product Brochure",
-        "file": "/documents/flexible-led-strip-brochure.pdf"
-      },
-      {
-        "name": "Compliance Certificate",
-        "file": "/documents/flexible-led-strip-compliance.pdf"
-      },
-      {
-        "name": "Test Report",
-        "file": "/documents/flexible-led-strip-test-report.pdf"
-      }
-    ]
-  },
-  {
-    "id": "rgbw-led-controller",
-    "name": "RGBW LED Controller with Remote",
-    "shortDescription": "Control your RGB and RGBW LED lighting with ease.",
-    "description": "This RGBW LED controller allows you to manage your RGB and RGBW LED lighting installations with precision. The included remote control offers 20 preset lighting effects, color adjustment, brightness control, and speed control. It supports synchronization of multiple controllers and features memory function to recall your last settings after power off.",
-    "price": 24.95,
     "featured": "no",
     "stockStatus": "In stock",
     "images": [
-      "/images/products/rgbw-controller-1.jpg",
-      "/images/products/rgbw-controller-2.jpg"
+      "/images/products/lrs-350-24-600.jpg"
     ],
     "specifications": {
-      "Input Voltage": "12-24V DC",
-      "Output": "4 Channels (R/G/B/W)",
-      "Max Current Per Channel": "5A",
-      "Total Output Power": "12V:<240W, 24V:<480W",
-      "Remote Control Range": "Up to 20 meters",
-      "Remote Battery": "CR2025 (included)",
-      "Dimensions": "85mm × 45mm × 23mm"
+      "Brand": "Meanwell",
+      "AC Input Voltage": "230V AC",
+      "Rated Power": "150W (156W)",
+      "Voltage": "24V DC",
+      "Output": "6.5A",
+      "EMC Emission": "Compliance to EN55032 Class B, EN61000-3-2,-3",
+      "Overload Protection": "105% ~ 150% of rated output power",
+      "Overvoltage Protection": "115% ~ 135% of rated output voltage, shut down o/p",
+      "Short Circuit Protection": "Hiccup mode, recovers automatically after fault removal",
+      "Waterproof Rating": "IP20 (Indoor Use)",
+      "Working Temperature": "-20 ~ +70°C (refer to derating curve)",
+      "Material": "Steel",
+      "Dimensions (L x W x H)": "159x97x30"
     },
     "documents": [
       {
-        "name": "User Manual",
-        "file": "/documents/rgbw-controller-manual.pdf"
+        "name": "Product Brochure",
+        "file": "/documents/flexible-led-strip-brochure.pdf"
       },
       {
-        "name": "Wiring Diagram",
-        "file": "/documents/rgbw-controller-wiring.pdf"
+        "name": "Compliance Certificate",
+        "file": "/documents/flexible-led-strip-compliance.pdf"
       }
-    ]
-  },
-  {
-    "id": "led-downlight",
-    "name": "LED Recessed Downlight (10W)",
-    "shortDescription": "Energy-efficient recessed lighting for modern interiors.",
-    "description": "These 10W recessed LED downlights provide bright, even illumination for residential and commercial spaces. Their slim profile makes them perfect for areas with limited ceiling cavity space, while the white finish blends seamlessly with most ceiling designs. Each downlight delivers the equivalent light output of a 60W traditional bulb while consuming just 10W of power.",
-    "price": 15.99,
-    "featured": "yes",
-    "stockStatus": "On order",
-    "images": [
-      "/images/products/led-downlight-1.jpg",
-      "/images/products/led-downlight-2.jpg"
-    ],
-    "specifications": {
-      "Power": "10W",
-      "Lumens": "850lm",
-      "Color Temperature": "4000K (Natural White)",
-      "Beam Angle": "120°",
-      "Cut-out Size": "90mm",
-      "Dimensions": "100mm × 35mm",
-      "Dimmable": "Yes (trailing edge)",
-      "Lifespan": "35,000 hours"
-    },
-    "documents": [
-      {
-        "name": "Installation Guide",
-        "file": "/documents/led-downlight-installation.pdf"
-      }
-    ]
-  },
-  {
-    "id": "led-driver",
-    "name": "12V DC LED Power Supply",
-    "shortDescription": "Reliable power supply for LED lighting systems.",
-    "description": "This constant voltage LED driver provides stable 12V DC output for powering LED strips, modules, and other low-voltage lighting. Its compact, lightweight design allows for flexible installation options, while built-in protections against short circuit, overload, and over-voltage ensure safe operation.",
-    "price": 29.95,
-    "featured": "no",
-    "stockStatus": "Out of stock",
-    "images": [
-      "/images/products/led-driver-1.jpg"
-    ],
-    "specifications": {
-      "Input Voltage": "100-240V AC",
-      "Output Voltage": "12V DC",
-      "Output Power": "60W",
-      "Output Current": "5A",
-      "Efficiency": ">85%",
-      "Protections": "Short circuit, overload, over-voltage",
-      "Dimensions": "140mm × 60mm × 30mm"
-    },
-    "documents": [
-      {
-        "name": "Technical Specifications",
-        "file": "/documents/led-driver-specs.pdf"
-      },
-      {
-        "name": "Safety Certificate",
-        "file": "/documents/led-driver-safety.pdf"
-      }
-    ]
-  },
-  {
-    "id": "pendant-light",
-    "name": "Modern LED Pendant Light",
-    "shortDescription": "Elegant suspended lighting for dining areas and kitchens.",
-    "description": "This modern LED pendant light features a sleek aluminum body with a matte black finish and a warm white light that creates a cozy ambiance. The adjustable suspension cables allow you to set the perfect height for your space, making it ideal for hanging over dining tables, kitchen islands, or in entryways.",
-    "price": 89.99,
-    "featured": "yes",
-    "stockStatus": "Order on demand",
-    "images": [
-      "/images/products/pendant-light-1.jpg",
-      "/images/products/pendant-light-2.jpg",
-      "/images/products/pendant-light-3.jpg"
-    ],
-    "specifications": {
-      "Power": "18W",
-      "Lumens": "1200lm",
-      "Color Temperature": "3000K (Warm White)",
-      "Material": "Aluminum, Acrylic",
-      "Finish": "Matte Black",
-      "Dimensions": "400mm diameter × 15mm height",
-      "Cable Length": "1.5m (adjustable)",
-      "Dimmable": "Yes (with compatible dimmer)"
-    },
-    "documents": [
-      {
-        "name": "Assembly Instructions",
-        "file": "/documents/pendant-light-assembly.pdf"
-      }
-    ]
-  },
-  {
-    "id": "motion-sensor",
-    "name": "Infrared Motion Sensor for Lighting",
-    "shortDescription": "Automatic lighting control for energy savings.",
-    "description": "This ceiling-mounted motion sensor detects movement using passive infrared technology and automatically controls your lighting for convenience and energy savings. It's perfect for hallways, stairwells, closets, garages, and other areas where hands-free lighting operation is desired.",
-    "price": 19.95,
-    "featured": "no",
-    "stockStatus": "At Supplier",
-    "images": [
-      "/images/products/motion-sensor-1.jpg",
-      "/images/products/motion-sensor-2.jpg"
-    ],
-    "specifications": {
-      "Detection Range": "Up to 8 meters",
-      "Detection Angle": "360°",
-      "Time Delay": "10 seconds to 7 minutes (adjustable)",
-      "Lux Setting": "10-2000 lux (adjustable)",
-      "Mounting Height": "2.2-4m recommended",
-      "Load Capacity": "800W (incandescent), 400W (LED/CFL)",
-      "Power Supply": "220-240V AC"
-    },
-    "documents": [
-      {
-        "name": "User Manual",
-        "file": "/documents/motion-sensor-manual.pdf"
-      },
-      {
-        "name": "Wiring Diagram",
-        "file": "/documents/motion-sensor-wiring.pdf"
-      }
+      
     ]
   }
 ]

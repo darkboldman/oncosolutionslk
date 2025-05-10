@@ -1,0 +1,210 @@
+---
+// This is a component for your index.astro page
+---
+
+<section class="roofing-section">
+    <div class="container">
+      <div class="roofing-content">
+        <div class="text-content">
+          <h2>Smart Lighting Automation for Guest Rooms and Homes</h2>
+          <p>
+            We deliver advanced lighting automation solutions designed for hospitality, residential spaces, and everything in between — enhancing comfort, convenience, and energy efficiency.
+            From cozy guest rooms to luxury homes, our systems offer effortless control and an elevated experience.
+          </p>
+          
+          <div class="features">
+            <div class="feature">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                  <path d="M2 17l10 5 10-5"></path>
+                  <path d="M2 12l10 5 10-5"></path>
+                </svg>
+              </div>
+              <div class="feature-text">
+                <h3>Innovative solutions</h3>
+                <p>Solutions with C-Bus, Dynalite, and other leading components to optimize lighting control for your specific needs.
+                </p>
+              </div>
+            </div>
+            
+            <div class="feature">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <div class="feature-text">
+                <h3>Quality Components</h3>
+                <p>Wide selection of LED fittings and accessories to complete your lighting project, From sleek designs to specialized components.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <a href="/contact" class="cta-button">Contact us</a>
+        </div>
+        
+        <div class="image-container">
+          <div class="years-badge">
+            <span class="years-text">more<br>than</span>
+            <span class="years">15</span>
+            <span class="years-text">years in <br>industry</span>
+          </div>
+          <img src="/public/images/website/Luxury-guest- Room-Automation-revolution-1.png" alt="guest room lighting automation with revolution by philips" class="luxury guest room with revolution install ed on wall">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    .roofing-section {
+      padding: 4rem 0;
+      background-color: #fff;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    .roofing-content {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+    
+    .text-content {
+      flex: 1;
+    }
+    
+    .text-content h2 {
+      font-size: 2rem;
+      color: var(--dark-blue);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    
+    .text-content p {
+      color: #666;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    
+    .features {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .feature {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    
+    .icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #e6f3ff;
+      border-radius: 50%;
+      padding: 0.5rem;
+      color: #0074d9;
+      flex-shrink: 0;
+    }
+    
+    .icon svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    
+    .feature-text h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark-blue);
+    }
+    
+    .feature-text p {
+      font-size: 0.9rem;
+      margin-bottom: 0;
+      color: #666;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    
+    .cta-button:hover {
+      background-color: var(--dark-blue);
+    }
+    
+    .image-container {
+      flex: 1;
+      position: relative;
+    }
+    
+    .roofing-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .years-badge {
+      position: absolute;
+      left: -20px;
+      bottom: 20px;
+      width: 90px;
+      height: 90px;
+      background-color: var(--gold-color);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      padding: 0.5rem;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    }
+    
+    .years {
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--primary-color);
+    }
+    
+    .years-text {
+      font-size: 0.7rem;
+      text-align: center;
+      line-height: 1;
+    }
+    
+    @media (max-width: 768px) {
+      .roofing-content {
+        flex-direction: column;
+      }
+      
+      .features {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .years-badge {
+        left: 10px;
+        bottom: 10px;
+      }
+    }
+  </style>
